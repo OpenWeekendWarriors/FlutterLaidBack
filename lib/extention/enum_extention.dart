@@ -1,68 +1,81 @@
-//
-//
-//
-//
-// //region Company Type
-// import 'package:smartboom_tv/model/enum/company_type.dart';
-//
-// extension CompanyType on EnumCompanyType {
-//   String get getCompanyTypeString {
-//     switch (this) {
-//       case EnumCompanyType.PublicLimited:
-//         return 'سهامی عام';
-//         break;
-//       case EnumCompanyType.PrivatelyHeld:
-//         return 'سهامی خاص';
-//         break;
-//       case EnumCompanyType.LimitedResponsibility:
-//         return 'مسئولیت محدود';
-//         break;
-//       case EnumCompanyType.Cooperative:
-//         return 'تعاونی';
-//         break;
-//     }
-//     return '';
-//     // moneyFormatter = 'RM${this}'
-//   }
-// }
-//
-// extension enumToIntCompanyType on EnumCompanyType {
-//   int get getEnumToIntCompanyType {
-//     switch (this) {
-//       case EnumCompanyType.PublicLimited:
-//         return 1;
-//         break;
-//       case EnumCompanyType.PrivatelyHeld:
-//         return 2;
-//         break;
-//       case EnumCompanyType.LimitedResponsibility:
-//         return 3;
-//         break;
-//       case EnumCompanyType.Cooperative:
-//         return 4;
-//         break;
-//     }
-//     return 1;
-//     // moneyFormatter = 'RM${this}'
-//   }
-// }
-//
-// extension IntToEnumCompanyType on int {
-//   EnumCompanyType? get getIntToEnumCompanyType {
-//     switch (this) {
-//       case 1:
-//         return EnumCompanyType.PublicLimited;
-//         break;
-//       case 2:
-//         return EnumCompanyType.PrivatelyHeld;
-//         break;
-//       case 3:
-//         return EnumCompanyType.LimitedResponsibility;
-//         break;
-//       case 4:
-//         return EnumCompanyType.Cooperative;
-//         break;
-//     }
-//   }
-// }
-//
+
+import 'package:flutter_laid_back/extention/enum_action.dart';
+
+extension StringActionToEnumAction on String {
+  EnumAction? get getEnumActionFromActionString {
+    switch (this) {
+      case 'dataInvalid':
+        return EnumAction.DATA_INVALID;
+      case 'KeyInvalid':
+        return EnumAction.KEY_INVALID;
+      case 'stuset':
+        return EnumAction.STU_SET;
+      case 'OK':
+        return EnumAction.OK;
+      case 'NOAN':
+        return EnumAction.NOAN;
+      case 'NORF':
+        return EnumAction.NORF;
+      case 'NORE':
+        return EnumAction.NORE;
+      case 'keyok':
+        return EnumAction.KEY_OK;
+      case 'NODD':
+        return EnumAction.NODD;
+      case 'DC':
+        return EnumAction.DC;
+      case 'NONA':
+        return EnumAction.NONA;
+      case 'NOSI':
+        return EnumAction.NOSI;
+      case 'NOBR':
+        return EnumAction.NOBR;
+      case 'NODE':
+        return EnumAction.NODE;
+      case 'NOAA':
+        return EnumAction.NOAA;
+      default:
+        return EnumAction.NONE;
+    }
+  }
+}
+
+extension EnumActionToStringAction on EnumAction {
+  String? get getActionStringFromEnumAction {
+    switch (this) {
+      case EnumAction.DATA_INVALID:
+        return 'dataInvalid';
+      case EnumAction.KEY_INVALID:
+        return 'KeyInvalid';
+      case EnumAction.STU_SET:
+        return 'stuset';
+      case EnumAction.OK:
+        return 'OK';
+      case EnumAction.NOAN:
+        return 'NOAN';
+      case EnumAction.NORF:
+        return 'NORF';
+      case EnumAction.NORE:
+        return 'NORE';
+      case EnumAction.KEY_OK:
+        return 'keyok';
+      case EnumAction.NODD:
+        return 'NODD';
+      case EnumAction.DC:
+        return 'DC';
+      case EnumAction.NONA:
+        return 'NONA';
+      case EnumAction.NOSI:
+        return 'NOSI';
+      case EnumAction.NOBR:
+        return 'NOBR';
+      case EnumAction.NODE:
+        return 'NODE';
+      case EnumAction.NOAA:
+        return 'NOAA';
+      default:
+        return '';
+    }
+  }
+}
+

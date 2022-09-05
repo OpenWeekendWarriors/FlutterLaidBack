@@ -1,0 +1,18 @@
+enum EnumAction {
+  DATA_INVALID,
+  KEY_INVALID,
+  STU_SET,
+  OK,
+  NOAN,
+  NORF,
+  NORE,
+  KEY_OK,
+  NODD,
+  DC,
+  NONA,
+  NONE,
+  NOSI,
+  NOBR,
+  NODE,
+  NOAA,
+}
