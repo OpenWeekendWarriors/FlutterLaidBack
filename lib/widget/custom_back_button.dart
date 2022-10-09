@@ -22,12 +22,11 @@ class CustomBackButton extends StatelessWidget {
               }
             },
             fillColor: color??Colors.white,
-            child: const Icon(
-              Icons.arrow_back_ios_outlined,
-              size: 24.0,
-            ),
             // padding: EdgeInsets.all(8.0),
             shape: const CircleBorder(),
+            child: const Icon(
+              Icons.arrow_back_ios_outlined,
+            ),
           ),
         ],
       ),

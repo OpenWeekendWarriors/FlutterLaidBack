@@ -1,4 +1,5 @@
  import 'package:flutter/material.dart';
+import 'package:flutter_laid_back/conf/const.dart';
  import 'package:get/get.dart';
  import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 showCustomBottomSheet({List<Widget>? widget , VoidCallback? callback}){
@@ -17,7 +18,7 @@ showCustomBottomSheet({List<Widget>? widget , VoidCallback? callback}){
           child: Container(
             padding: MediaQuery.of(context).viewInsets,
             child: Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: EdgeInsets.all(dim_small),
               child: Wrap(
                 // mainAxisSize: MainAxisSize.min,
                 children: AnimationConfiguration.toStaggeredList(

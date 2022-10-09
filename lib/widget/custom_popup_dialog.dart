@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_laid_back/widget/text_widget.dart';
 
 Future<bool> showPopupDialog(context,
-    {title, positiveText, negativeText, VoidCallback? positiveButton, VoidCallback? negativeButton}) async {
+    {title,
+      message,
+      positiveText, negativeText, VoidCallback? positiveButton, VoidCallback? negativeButton}) async {
   return await showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -15,6 +17,7 @@ Future<bool> showPopupDialog(context,
               mainAxisSize: MainAxisSize.min,
               children: [
                 CustomText(title ?? '' , fontWeight: FontWeight.w700,),
+                CustomText(message ?? '' , fontWeight: FontWeight.w500,),
                 const SizedBox(height: 20),
                 Row(
                   children: [
