@@ -3,7 +3,6 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_laid_back/conf/color_pallet.dart';
 import 'package:get/get.dart';
 
 class CustomTextField extends StatelessWidget {
@@ -28,7 +27,7 @@ class CustomTextField extends StatelessWidget {
   final TextEditingController? textEditingController;
   final bool? isBold;
   final bool? isObscureText;
-    final Color? hintColorr;
+  final Color? hintColor;
   Color? borderColor;
   final bool? isReadOnly;
   final bool? isCounter;
@@ -68,7 +67,7 @@ class CustomTextField extends StatelessWidget {
       this.prefixIcon,
       this.outSidePadding,
       this.textEditingController,
-      this.hintColorr =hintColor,
+      this.hintColor,
       this.borderColor,
       this.isBold = false,
       this.isObscureText = false,
@@ -87,7 +86,7 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    borderColor = primaryColor;
+    borderColor = Get.theme.primaryColor;
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 5),
       child: TextFormField(
@@ -117,7 +116,7 @@ class CustomTextField extends StatelessWidget {
         readOnly:isReadOnly??false ,
         maxLength:maxLength,
         obscureText: isObscureText!,
-        cursorColor: primaryColorDarkLight,
+        cursorColor: Get.theme.primaryColorLight,
         controller: textEditingController,
         inputFormatters: inputFormatters ?? [],
         // [FilteringTextInputFormatter.allow(RegExp(r"[a-zA-Z0-9]+"))],
@@ -136,7 +135,7 @@ class CustomTextField extends StatelessWidget {
 
         style: TextStyle(
             // fontFamily: Utils.getFontFamily(),
-            color: primaryColor,
+            color: Get.theme.primaryColor,
             fontSize: fontSize! + 2,
             fontWeight: FontWeight.w700),
         decoration: InputDecoration(
@@ -180,7 +179,7 @@ class CustomTextField extends StatelessWidget {
               fontWeight: isBold! ? FontWeight.bold : FontWeight.normal),
           hintText: hint!.tr,
           hintStyle: TextStyle(
-              color: Colors.white,
+              color: hintColor ?? Get.theme.hintColor,
               fontSize: fontSize ?? 17.0,
               fontWeight: isBold! ? FontWeight.bold : FontWeight.normal),
         ),

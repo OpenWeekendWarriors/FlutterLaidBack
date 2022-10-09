@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_laid_back/conf/color_pallet.dart';
 import 'package:flutter_laid_back/conf/const.dart';
 import 'package:flutter_laid_back/widget/cached_network_image_widget.dart';
 import 'package:flutter_laid_back/widget/text_widget.dart';
+import 'package:get/get.dart';
 
 class CustomDropDown extends StatefulWidget {
   final List<DropdownItem>? items;
@@ -66,11 +66,11 @@ class _CustomDropDownState extends State<CustomDropDown> {
       child: DropdownButton(
         icon: Icon(
           Icons.arrow_drop_down_circle,
-          color: widget.dropDownIconColor ?? Color(0xff525E7E),
+          color: widget.dropDownIconColor ?? Get.theme.iconTheme.color,
         ),
         hint: CustomText(
           widget.hint ?? '',
-          color:hintColor,
+          color:Get.theme.hintColor,
         ),
         isExpanded: true,
         underline: const SizedBox(),
@@ -111,7 +111,7 @@ class _CustomDropDownState extends State<CustomDropDown> {
                   ),
                   CustomText(
                     item.name,
-                    color: hintColor,
+                    color: Get.theme.hintColor,
                   )
                 ],
               ),

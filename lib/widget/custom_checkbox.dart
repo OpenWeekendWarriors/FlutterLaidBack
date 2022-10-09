@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_laid_back/conf/color_pallet.dart';
 import 'package:get/get.dart';
 
 class CustomCheckBox extends StatefulWidget {
@@ -30,16 +29,20 @@ class _CustomCheckBoxState extends State<CustomCheckBox> {
         margin: const EdgeInsets.symmetric(horizontal: 5),
         decoration: BoxDecoration(
             shape: BoxShape.rectangle,
-            color: _value ? yellowColor : Colors.transparent,
+            color: _value
+                ? Get.theme.checkboxTheme.fillColor
+                    ?.resolve(<MaterialState>{MaterialState.selected})
+                : Colors.transparent,
             border: Border.all(
-              color: yellowColor,
+              color: Get.theme.checkboxTheme.checkColor!
+                  .resolve(<MaterialState>{MaterialState.selected})!,
             ),
             borderRadius: BorderRadius.circular(5)),
         child: _value
-            ? const Icon(
+            ? Icon(
                 Icons.check,
                 size: 12.0,
-                color: Color(0xFF051436),
+                color: Get.theme.primaryColor,
               )
             : const SizedBox(),
       ),

@@ -16,13 +16,6 @@ int VALID_VERIFICATION_TIME = 240;
 int SOCKET_CONNECTION_TIME_OUT_IN_SECONDE = 30;
 const String NO_ACCESS_TOKEN = 'NOAccessToken';
 
-String REFS36 = 'REFSR36S';
-String REFS41 = 'REFSR41S';
-String WM71 = 'WMSW71';
-// String WM76 = 'WMSW76';
-String WM76B = 'WMSW76B';
-
-
 String persianFontFamily = 'YekiFaNumMedium';
 String englishFontFamily = 'Helvetica';
 // String englishFontFamily = 'Vollkorn-Regular';

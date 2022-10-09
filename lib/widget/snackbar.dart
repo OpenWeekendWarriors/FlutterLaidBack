@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_laid_back/conf/color_pallet.dart';
 import 'package:flutter_laid_back/conf/const.dart';
 import 'package:flutter_laid_back/widget/text_widget.dart';
 import 'package:get/get.dart';
@@ -7,41 +6,43 @@ import 'package:get/get_navigation/src/snackbar/snackbar.dart';
 import 'package:meta/meta.dart';
 
 enum SnackBarType { Error, Hint, Report }
+
 enum ShowType { DIALOG, SNACKBAR, TOAST }
+
+var errorColor = Colors.red.withAlpha(150);
+var hintColor = Colors.yellow.withAlpha(150);
+var reportColor = Colors.green.withAlpha(150);
 
 void showSnackBar(
     {@required String? text,
-      String? textConfirm,int? duration,
-      SnackPosition snackPosition = SnackPosition.BOTTOM,
-      VoidCallback? onConfirm,
-      ShowType showType = ShowType.SNACKBAR,
-      VoidCallback? onTap,
-      Color? color,
-      SnackBarType snackBarType = SnackBarType.Error}) {
+    String? textConfirm,
+    int? duration,
+    SnackPosition snackPosition = SnackPosition.BOTTOM,
+    VoidCallback? onConfirm,
+    ShowType showType = ShowType.SNACKBAR,
+    VoidCallback? onTap,
+    Color? color,
+    SnackBarType snackBarType = SnackBarType.Error}) {
   switch (showType) {
     case ShowType.DIALOG:
       Get.defaultDialog(
           titleStyle: const TextStyle(
             fontWeight: FontWeight.bold,
           ),
-
-
           title: snackBarType == SnackBarType.Error
               ? '\u26D4' + ' ' + ''
               : snackBarType == SnackBarType.Report
-              ? '\u26A0' +
-              ' '
-                  '' +
-              ''
-              : '',
+                  ? '\u26A0' +
+                      ' '
+                          '' +
+                      ''
+                  : '',
           middleTextStyle: const TextStyle(fontSize: 14),
           middleText: text!,
-          cancelTextColor: primaryColor,
+          cancelTextColor: Get.theme.primaryColor,
           textCancel: 'متوجه شدم',
           barrierDismissible: false,
-          onCancel: () => {
-
-          },
+          onCancel: () => {},
           confirmTextColor: Get.theme.primaryColor,
           textConfirm: textConfirm ?? '',
           onConfirm: () {
@@ -66,7 +67,6 @@ void showSnackBar(
                 size: 20,
                 fontWeight: FontWeight.bold,
                 textAlign: TextAlign.center,
-
               ),
             ),
           ),
@@ -82,13 +82,11 @@ void showSnackBar(
           //     : snackBarType == SnackBarType.Report ? Colors.black : Colors.black,
           // dismissDirection: SnackDismissDirection.HORIZONTAL,
           // backgroundColor: Get.theme.appBarTheme.color.withAlpha(150));
-          backgroundColor:
-          snackBarType == SnackBarType.Error
-              ? errorColor.withAlpha(150)
-              : snackBarType == SnackBarType.Report ?messageColor.withAlpha(150) : messageColor.withAlpha(150)
-
-
-      );
+          backgroundColor: snackBarType == SnackBarType.Error
+              ? errorColor
+              : snackBarType == SnackBarType.Report
+                  ? reportColor
+                  : hintColor);
       // return Get.snackbar("Skills Massasge",
       //     text.substring(0, text.length > 200 ? 200 : text.length),
       //     snackPosition: SnackPosition.TOP,

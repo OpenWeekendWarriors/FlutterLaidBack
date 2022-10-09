@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_laid_back/conf/color_pallet.dart';
 import 'package:flutter_laid_back/conf/const.dart';
 import 'package:flutter_laid_back/widget/text_widget.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -128,8 +127,8 @@ class CustomButton extends StatelessWidget {
                       gradient: LinearGradient(
                         colors: bgColor ??
                             [
-                              primaryColorDarkLight,
-                              primaryColorDarkDark,
+                              Get.theme.primaryColorLight,
+                              Get.theme.primaryColorDark,
                             ],
                         begin: Alignment.centerLeft,
                         end: Alignment.centerRight,
