@@ -120,7 +120,7 @@ class CustomButton extends StatelessWidget {
                             ? CustomText(
                                 title,
                                 fontWeight: FontWeight.bold,
-                                color: textColor,
+                                color: textColor ?? Get.theme.textTheme.bodyText1!.color,
                               )
                             : child,
                       ),

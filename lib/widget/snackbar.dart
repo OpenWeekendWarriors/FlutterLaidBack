@@ -53,7 +53,7 @@ void showSnackBar(
     case ShowType.SNACKBAR:
       Get.snackbar("Skills Message",
           text!.substring(0, text.length > 200 ? 200 : text.length),
-          maxWidth: minWidth * 40,
+          maxWidth: minWidth * dim_medium,
           snackPosition: snackPosition,
           duration: Duration(seconds: duration ?? 4),
           animationDuration: const Duration(milliseconds: 700),
