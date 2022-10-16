@@ -1,11 +1,6 @@
-
 import 'package:example/color_schemes.dart';
-import 'package:example/themes.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_laid_back/widget/button_widget.dart';
-import 'package:flutter_laid_back/widget/svg_loader.dart';
-import 'package:flutter_laid_back/widget/text_field_widget.dart';
-import 'package:flutter_laid_back/widget/text_widget.dart';
+import 'package:flutter_laid_back/widget/custom_drop_down.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,12 +13,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      locale: const Locale('fa', 'IR'),
       // theme: Themes().lightTheme,
-
-      theme: ThemeData(useMaterial3: true, colorScheme: lightColorScheme,),
+      theme: ThemeData(useMaterial3: true, colorScheme: lightColorScheme),
       darkTheme: ThemeData(useMaterial3: true, colorScheme: darkColorScheme),
-
 
       // theme: FlexThemeData.light(scheme: FlexScheme.material),
       // The Mandy red, dark theme.
@@ -46,18 +38,18 @@ class Home extends StatelessWidget {
           elevation: 2,
           title: Text("Material Theme Builder"),
         ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: CustomDropDown(
+            items: [DropdownItem('1'), DropdownItem('2')],
+            borderRadios: 5,
+            onSelection: (value){
 
-
-              CustomButton(title: 'teststtst',),
-              CustomTextField(lable: 'سیبسیب',suffixIcon: Icon(Icons.ac_unit),)
-            ],
+            },
+            bgColordropdown: Colors.red,
+            borderColor: Colors.blue,
           ),
         ),
-        floatingActionButton:
-        FloatingActionButton(onPressed: () => {}, tooltip: 'Increment'));
+        floatingActionButton: FloatingActionButton(onPressed: () => {}, tooltip: 'Increment'));
   }
 }

@@ -47,7 +47,6 @@ class CustomText extends StatelessWidget {
             textAlign: textAlign,
             style: TextStyle(
               height: 1.1,
-                // fontFamily: Utils.getFontFamily(),
                 color:color ?? Get.theme.textTheme.bodyText1!.color,
                 fontSize: size!,
                 fontWeight: fontWeight ?? FontWeight.normal),

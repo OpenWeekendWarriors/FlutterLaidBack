@@ -13,8 +13,11 @@ class CustomDropDown extends StatefulWidget {
   final Color? dropDownIconColor;
   final Color? borderColor;
   final Color? dbTextColor;
-
+  final Color? bgColordropdown;
+  final Icon? arrowIcon;
+  final bool? isExpand;
   final DropdownItem? iniValue;
+
 
   const CustomDropDown(
       {Key? key,
@@ -25,7 +28,10 @@ class CustomDropDown extends StatefulWidget {
       this.onSelection,
       this.hint,
       this.bgColor,
+      this.arrowIcon,
       this.dbTextColor,
+      this.bgColordropdown,
+      this.isExpand,
       this.iniValue})
       : super(key: key);
 
@@ -51,71 +57,52 @@ class _CustomDropDownState extends State<CustomDropDown> {
     return Container(
       decoration: BoxDecoration(
         color: widget.bgColor,
+
         border: Border.all(color: widget.borderColor ?? Colors.white),
         borderRadius: BorderRadius.circular(widget.borderRadios?? brd_radius_medium),
-        // boxShadow: const [
-        //   BoxShadow(
-        //     color: Colors.grey,
-        //     blurRadius: 20.0,
-        //     spreadRadius: 0.5,
-        //     offset: Offset(1.0, 1.0),
-        //   ),
-        // ],
       ),
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
       margin: const EdgeInsets.symmetric(vertical: 10),
       child: DropdownButton(
-        icon: Icon(
+        dropdownColor: widget.bgColordropdown??Colors.white,
+        borderRadius:BorderRadius.all(Radius.circular(widget.borderRadios ?? 0)) ,
+        icon: widget.arrowIcon?? Icon(
           Icons.arrow_drop_down_circle,
           color: widget.dropDownIconColor ?? Get.theme.iconTheme.color,
         ),
+
         hint: CustomText(
           widget.hint ?? '',
-          color:Get.theme.hintColor,
+          color:Colors.red,
         ),
-        isExpanded: true,
+        isExpanded: widget.isExpand ?? true,
         underline: const SizedBox(),
         items: widget.items?.map((DropdownItem item) {
           return DropdownMenuItem(
             value: item,
-            child: Container(
-              // decoration: BoxDecoration(
-              // color: widget.bgColor??Colors.white,
-              // borderRadius: BorderRadius.circular(borderRadius),
-              // boxShadow: const [
-              //   BoxShadow(
-              //     color: Colors.grey,
-              //     blurRadius: 20.0,
-              //     spreadRadius: 0.5,
-              //     offset: Offset(1.0, 1.0),
-              //   ),
-              // ],
-              // ),
-
-              child: Row(
-                children: [
-                  item.icon == null
-                      ? const SizedBox()
-                      : item.icon!.startsWith('asset')
-                          ? CircleAvatar(
-                              radius: 15,
-                              backgroundImage: Image.asset(item.icon! , fit: BoxFit.contain,).image,
-                            )
-                          : BuildCachedImageWidget(
-                              imageUrl: item.icon!,
-                              borderRadius: 30,
-                              height: 24,
-                              width: 24,
-                            ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  CustomText(
-                    item.name,
-                    color: Get.theme.hintColor,
-                  )
-                ],
-              ),
+            child: Row(
+              children: [
+                item.icon == null
+                    ? const SizedBox()
+                    : item.icon!.startsWith('asset')
+                        ? CircleAvatar(
+                            radius: 15,
+                            backgroundImage: Image.asset(item.icon! , fit: BoxFit.contain,).image,
+                          )
+                        : BuildCachedImageWidget(
+                            imageUrl: item.icon!,
+                            borderRadius: 30,
+                            height: 24,
+                            width: 24,
+                          ),
+                const SizedBox(
+                  width: 10,
+                ),
+                CustomText(
+                  item.name,
+                  color: widget.dbTextColor?? Get.theme.hintColor,
+                )
+              ],
             ),
           );
         }).toList(),

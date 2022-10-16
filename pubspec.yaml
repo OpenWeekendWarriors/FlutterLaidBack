@@ -1,8 +1,6 @@
 name: flutter_laid_back
 description: A new Flutter project.
 version: 0.0.1
-homepage:
-
 environment:
   sdk: ">=2.17.1 <3.0.0"
   flutter: ">=1.17.0"
