@@ -73,7 +73,7 @@ class _CustomDropDownState extends State<CustomDropDown> {
 
         hint: CustomText(
           widget.hint ?? '',
-          color:Colors.red,
+          color: widget.dbTextColor?? Get.theme.hintColor,
         ),
         isExpanded: widget.isExpand ?? true,
         underline: const SizedBox(),
