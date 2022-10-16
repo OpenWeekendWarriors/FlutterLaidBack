@@ -9,27 +9,56 @@ class CustomText extends StatelessWidget {
   final Widget? endWidget;
   final FontWeight? fontWeight;
   final TextAlign? textAlign;
+  final double? letterSpacing;
+  final double? height;
+  final TextOverflow? overflow;
   final int? characterCount;
   final bool? isScrolling;
   final double? padding;
   final VoidCallback? onTap;
+  final TextStyle? style;
 
-  const CustomText(this.text,
-      {Key? key,
-      this.color,
-      this.size = 18.0,
-      this.fontWeight,
-      this.textAlign = TextAlign.start,
-      this.characterCount,
-      this.padding = 2,
-      this.startWidget,
-      this.endWidget,
-      this.onTap,
-      this.isScrolling = false})
-      : super(key: key);
+  const CustomText(
+    this.text, {
+    Key? key,
+    this.color,
+    this.size = 18.0,
+    this.fontWeight,
+    this.textAlign = TextAlign.start,
+    this.characterCount,
+    this.padding = 2,
+    this.startWidget,
+    this.endWidget,
+    this.onTap,
+    this.letterSpacing,
+    this.height,
+    this.overflow,
+    this.style,
+    this.isScrolling = false,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var textStyle = TextStyle(
+        height: height ?? 1.1,
+        overflow: overflow,
+        letterSpacing: letterSpacing,
+        // fontFamily: Utils.getFontFamily(),
+        color: color ?? Get.theme.textTheme.bodyText1!.color,
+        fontSize: size!,
+        fontWeight: fontWeight ?? FontWeight.normal);
+    if(style != null) {
+      textStyle = style!.copyWith(
+        height: height ?? (style?.height ?? 1.1),
+        overflow: overflow,
+        letterSpacing: letterSpacing,
+        color: color ??
+            (style?.color ?? Get.theme.textTheme.bodyText1!.color),
+        fontSize: size,
+        fontWeight:
+        fontWeight ?? (style?.fontWeight ?? FontWeight.normal),
+      );
+    }
     return Padding(
       padding:
           padding == null ? EdgeInsets.all(padding!) : EdgeInsets.all(padding!),
@@ -45,12 +74,7 @@ class CustomText extends StatelessWidget {
                             : characterCount) +
                     (text!.tr.length < characterCount! ? "" : "..."),
             textAlign: textAlign,
-            style: TextStyle(
-              height: 1.1,
-                // fontFamily: Utils.getFontFamily(),
-                color:color ?? Get.theme.textTheme.bodyText1!.color,
-                fontSize: size!,
-                fontWeight: fontWeight ?? FontWeight.normal),
+            style: textStyle,
           )),
     );
   }
