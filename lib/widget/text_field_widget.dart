@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_laid_back/conf/const.dart';
 import 'package:get/get.dart';
 
 class CustomTextField extends StatelessWidget {
@@ -12,7 +13,7 @@ class CustomTextField extends StatelessWidget {
   final Function(String)? onChange;
   final Color? backgroundColor;
   final Color? textColor;
-  final double? fontSize;
+  final double fontSize;
   final TextAlign? textAlign;
   final double? height;
   final double? width;
@@ -49,9 +50,9 @@ class CustomTextField extends StatelessWidget {
       {Key? key, this.hint='',
       this.onChange,
       this.initVal,
-      this.backgroundColor = Colors.white,
+      this.backgroundColor,
       this.textColor,
-      this.fontSize = 18,
+      this.fontSize = text_size_medium,
       this.textAlign,
       this.height,
       this.width,
@@ -60,7 +61,7 @@ class CustomTextField extends StatelessWidget {
       this.onFieldSubmitted,
       this.lable = '',
       this.isValid,
-      this.borderRadius = 5,
+      this.borderRadius = brd_radius_small,
       this.withInputFormatters,
       this.suffixIcon,
       this.elevation,
@@ -94,7 +95,7 @@ class CustomTextField extends StatelessWidget {
         focusNode: focusNode??FocusNode(),
         autofocus: true,
         // initialValue:initVal??'' ,
-        textDirection: textDirection,
+        textDirection: textDirection  ,
         textInputAction:textInputAction ,
           autovalidateMode: AutovalidateMode.onUserInteraction,
           cursorWidth: 2,
@@ -135,14 +136,14 @@ class CustomTextField extends StatelessWidget {
 
         style: TextStyle(
             // fontFamily: Utils.getFontFamily(),
-            color: Get.theme.primaryColor,
-            fontSize: fontSize! + 2,
+            color: Get.theme.textTheme.bodyText1!.color,
+            fontSize: fontSize + 2,
             fontWeight: FontWeight.w700),
         decoration: InputDecoration(
           counterText:"",
           floatingLabelBehavior: FloatingLabelBehavior.auto,
           isDense: true,
-          fillColor: backgroundColor,
+          fillColor: Colors.white,
           filled: true, // dont forget this line
           contentPadding: padding??const EdgeInsets.symmetric(horizontal: 15 , vertical: 14),
           focusedBorder: enableBorder!
@@ -174,13 +175,13 @@ class CustomTextField extends StatelessWidget {
           labelText: lable?.tr,
           alignLabelWithHint: true,
           labelStyle: TextStyle(
-              color: Colors.white,
-              fontSize: (fontSize! + 2),
+              color:Get.theme.hintColor,
+              fontSize: (fontSize + 2),
               fontWeight: isBold! ? FontWeight.bold : FontWeight.normal),
           hintText: hint!.tr,
           hintStyle: TextStyle(
-              color: hintColor ?? Get.theme.hintColor,
-              fontSize: fontSize ?? 17.0,
+              color: Get.theme.hintColor,
+              fontSize: fontSize,
               fontWeight: isBold! ? FontWeight.bold : FontWeight.normal),
         ),
       ),

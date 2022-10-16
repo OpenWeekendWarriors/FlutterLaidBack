@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_laid_back/conf/const.dart';
 import 'package:get/get.dart';
 
 class CustomCheckBox extends StatefulWidget {
@@ -41,7 +42,7 @@ class _CustomCheckBoxState extends State<CustomCheckBox> {
         child: _value
             ? Icon(
                 Icons.check,
-                size: 12.0,
+                size: icon_size_small,
                 color: Get.theme.primaryColor,
               )
             : const SizedBox(),

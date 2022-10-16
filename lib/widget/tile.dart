@@ -6,19 +6,22 @@ class Tile extends StatelessWidget {
     Key? key,
     required this.index,
     this.extent,
+    this.width,
     this.backgroundColor,
     this.bottomSpace,
   }) : super(key: key);
 
   final int index;
   final double? extent;
+  final double? width;
   final double? bottomSpace;
   final Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {
     final child = Container(
-      color: backgroundColor ?? Get.theme.primaryColor,
+      // color: backgroundColor ?? Get.theme.primaryColor,
+      width: width,
       height: extent,
       child: Center(
         child: CircleAvatar(

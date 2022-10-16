@@ -8,7 +8,7 @@ class CustomDropDown extends StatefulWidget {
   final List<DropdownItem>? items;
   final Function(DropdownItem)? onSelection;
   final String? hint;
-
+  final double? borderRadios;
   final Color? bgColor;
   final Color? dropDownIconColor;
   final Color? borderColor;
@@ -20,6 +20,7 @@ class CustomDropDown extends StatefulWidget {
       {Key? key,
       this.items,
       this.dropDownIconColor,
+      this.borderRadios,
       this.borderColor,
       this.onSelection,
       this.hint,
@@ -51,7 +52,7 @@ class _CustomDropDownState extends State<CustomDropDown> {
       decoration: BoxDecoration(
         color: widget.bgColor,
         border: Border.all(color: widget.borderColor ?? Colors.white),
-        borderRadius: BorderRadius.circular(borderRadius),
+        borderRadius: BorderRadius.circular(widget.borderRadios?? brd_radius_medium),
         // boxShadow: const [
         //   BoxShadow(
         //     color: Colors.grey,
