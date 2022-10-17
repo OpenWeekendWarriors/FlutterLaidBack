@@ -101,7 +101,7 @@ class CustomTextField extends StatelessWidget {
         child: TextFormField(
           onFieldSubmitted: onFieldSubmitted,
           focusNode: focusNode??FocusNode(),
-          autofocus: true,
+          autofocus: false,
           // initialValue:initVal??'' ,
           textDirection: textDirection  ,
           textInputAction:textInputAction ,
