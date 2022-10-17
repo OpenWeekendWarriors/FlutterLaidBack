@@ -1,6 +1,7 @@
 import 'package:example/color_schemes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_laid_back/widget/custom_drop_down.dart';
+import 'package:flutter_laid_back/widget/text_field_widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -40,14 +41,22 @@ class Home extends StatelessWidget {
         ),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: CustomDropDown(
-            items: [DropdownItem('1'), DropdownItem('2')],
-            borderRadios: 5,
-            onSelection: (value){
+          child: Column(
+            children: [
+              // CustomDropDown(
+              //   items: [DropdownItem('1'), DropdownItem('2')],
+              //   borderRadios: 5,
+              //   onSelection: (value){
+              //
+              //   },
+              //   bgColordropdown: Colors.red,
+              //   borderColor: Colors.blue,
+              // ),
+              CustomTextField(onFocus: (value){
+                print(value.toString());
+              },borderColor: Colors.red,)
 
-            },
-            bgColordropdown: Colors.red,
-            borderColor: Colors.blue,
+            ],
           ),
         ),
         floatingActionButton: FloatingActionButton(onPressed: () => {}, tooltip: 'Increment'));
