@@ -29,7 +29,8 @@ class CustomTextField extends StatelessWidget {
   final bool? isBold;
   final bool? isObscureText;
   final Color? hintColor;
-  Color? borderColor;
+  Color? focusBorderColor;
+  Color? unFocusBorderColor;
   final bool? isReadOnly;
   final bool? isCounter;
   final FocusNode? focusNode;
@@ -43,7 +44,7 @@ class CustomTextField extends StatelessWidget {
   final bool? enableBorder;
   final TextInputAction? textInputAction;
   final TextDirection? textDirection;
-  final ValueChanged<bool>? onFocus;
+  final ValueChanged<bool>? onFocusChange;
 
   final errorText;
 
@@ -70,7 +71,8 @@ class CustomTextField extends StatelessWidget {
       this.outSidePadding,
       this.textEditingController,
       this.hintColor,
-      this.borderColor,
+      this.focusBorderColor,
+      this.unFocusBorderColor,
       this.isBold = false,
       this.isObscureText = false,
       this.maxLine = 1,
@@ -81,7 +83,7 @@ class CustomTextField extends StatelessWidget {
       this.validator,
       this.onTap,
       this.isReadOnly,
-      this.onFocus,
+      this.onFocusChange,
       this.isCounter = false,
       this.textDirection = TextDirection.rtl,
       this.textInputAction = TextInputAction.done,
@@ -89,14 +91,12 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    borderColor =borderColor?? Get.theme.primaryColor;
+    focusBorderColor =focusBorderColor?? Get.theme.primaryColor;
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 5),
-      child: Focus(autofocus: false,
+      child: Focus(
         onFocusChange:(hasFocus) {
-          if(hasFocus) {
-          onFocus!.call(hasFocus);
-          }
+          onFocusChange!.call(hasFocus);
         },
         child: TextFormField(
           onFieldSubmitted: onFieldSubmitted,
@@ -158,25 +158,25 @@ class CustomTextField extends StatelessWidget {
                 ? OutlineInputBorder(
                     borderRadius: BorderRadius.circular(borderRadius!),
                     borderSide: BorderSide(
-                        color: borderColor! ))
+                        color: focusBorderColor! ))
                 : InputBorder.none,
             disabledBorder: enableBorder!
                 ? OutlineInputBorder(
                     borderRadius: BorderRadius.circular(borderRadius!),
                     borderSide: BorderSide(
-                        color: borderColor! ))
+                        color: focusBorderColor! ))
                 : InputBorder.none,
             enabledBorder: enableBorder!
                 ? OutlineInputBorder(
                     borderRadius: BorderRadius.circular(borderRadius!),
                     borderSide: BorderSide(
-                        color: borderColor! ))
+                        color: unFocusBorderColor??focusBorderColor!))
                 : InputBorder.none,
             border: enableBorder!
                 ? OutlineInputBorder(
                     borderRadius: BorderRadius.circular(borderRadius!),
                     borderSide: BorderSide(
-                        color: borderColor! ))
+                        color: focusBorderColor! ))
                 : InputBorder.none,
             prefixIcon: prefixIcon,
             suffixIcon: suffixIcon ,
