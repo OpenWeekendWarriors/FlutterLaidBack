@@ -92,7 +92,7 @@ class CustomTextField extends StatelessWidget {
     borderColor =borderColor?? Get.theme.primaryColor;
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 5),
-      child: Focus(
+      child: Focus(autofocus: false,
         onFocusChange:(hasFocus) {
           if(hasFocus) {
           onFocus!.call(hasFocus);
