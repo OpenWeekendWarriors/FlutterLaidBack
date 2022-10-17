@@ -96,7 +96,9 @@ class CustomTextField extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 5),
       child: Focus(
         onFocusChange:(hasFocus) {
-          onFocusChange!.call(hasFocus);
+          if(onFocusChange!=null) {
+            onFocusChange!.call(hasFocus);
+          }
         },
         child: TextFormField(
           onFieldSubmitted: onFieldSubmitted,
