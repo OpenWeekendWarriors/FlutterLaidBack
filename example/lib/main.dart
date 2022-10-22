@@ -56,7 +56,7 @@ class Home extends StatelessWidget {
                   textInputAction: TextInputAction.next,
                  focusBorderColor: Colors.yellow,unFocusBorderColor: Colors.red),
               CustomTextField(
-                  textInputAction: TextInputAction.next,
+                  textInputAction: TextInputAction.search,
                focusBorderColor: Colors.yellow,unFocusBorderColor: Colors.red)
 
             ],

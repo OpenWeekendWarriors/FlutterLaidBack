@@ -42,11 +42,13 @@ class CustomTextField extends StatelessWidget {
   final ValueChanged<String>? onFieldSubmitted;
   final GestureTapCallback? onTap;
   final bool? enableBorder;
+  final bool? autoFocus;
   final TextInputAction? textInputAction;
   final TextDirection? textDirection;
   // final ValueChanged<bool>? onFocusChange;
 
   final errorText;
+
 
    CustomTextField(
       {Key? key, this.hint='',
@@ -85,6 +87,7 @@ class CustomTextField extends StatelessWidget {
       this.isReadOnly,
       // this.onFocusChange,
       this.isCounter = false,
+      this.autoFocus = false,
       this.textDirection = TextDirection.rtl,
       this.textInputAction = TextInputAction.done,
       this.textInputType  = TextInputType.text}) : super(key: key);
@@ -97,7 +100,7 @@ class CustomTextField extends StatelessWidget {
       child: TextFormField(
         onFieldSubmitted: onFieldSubmitted,
         focusNode: focusNode??FocusNode(),
-        autofocus: false,
+        autofocus: autoFocus!,
         // initialValue:initVal??'' ,
         textDirection: textDirection  ,
         textInputAction:textInputAction ,
