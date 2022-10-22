@@ -52,12 +52,12 @@ class Home extends StatelessWidget {
               //   bgColordropdown: Colors.red,
               //   borderColor: Colors.blue,
               // ),
-              CustomTextField(onFocusChange: (value){
-                print(value.toString());
-              },focusBorderColor: Colors.yellow,unFocusBorderColor: Colors.red),
-              CustomTextField(onFocusChange: (value){
-                print(value.toString());
-              },focusBorderColor: Colors.yellow,unFocusBorderColor: Colors.red)
+              CustomTextField(
+                  textInputAction: TextInputAction.next,
+                 focusBorderColor: Colors.yellow,unFocusBorderColor: Colors.red),
+              CustomTextField(
+                  textInputAction: TextInputAction.next,
+               focusBorderColor: Colors.yellow,unFocusBorderColor: Colors.red)
 
             ],
           ),
