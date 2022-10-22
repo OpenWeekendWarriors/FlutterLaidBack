@@ -50,6 +50,7 @@ get shimmerGradient => const LinearGradient(
       tileMode: TileMode.clamp,
     );
 
+
 boxShadow(Color? color, double? blurRadius, double? spread, double? offset) {
   return [
     BoxShadow(
