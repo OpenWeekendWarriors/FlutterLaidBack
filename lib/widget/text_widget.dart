@@ -13,7 +13,7 @@ class CustomText extends StatelessWidget {
   final double? height;
   final TextOverflow? overflow;
   final int? characterCount;
-  final bool? isScrolling;
+  final bool? isMatchParent;
   final double? padding;
   final VoidCallback? onTap;
   final TextStyle? style;
@@ -34,7 +34,7 @@ class CustomText extends StatelessWidget {
     this.height,
     this.overflow,
     this.style,
-    this.isScrolling = false,
+    this.isMatchParent = false,
   }) : super(key: key);
 
   @override
@@ -47,35 +47,35 @@ class CustomText extends StatelessWidget {
         color: color ?? Get.theme.textTheme.bodyText1!.color,
         fontSize: size!,
         fontWeight: fontWeight ?? FontWeight.normal);
-    if(style != null) {
+    if (style != null) {
       textStyle = style!.copyWith(
         height: height ?? (style?.height ?? 1.1),
         overflow: overflow,
         letterSpacing: letterSpacing,
-        color: color ??
-            (style?.color ?? Get.theme.textTheme.bodyText1!.color),
+        color: color ?? (style?.color ?? Get.theme.textTheme.bodyText1!.color),
         fontSize: size,
-        fontWeight:
-        fontWeight ?? (style?.fontWeight ?? FontWeight.normal),
+        fontWeight: fontWeight ?? (style?.fontWeight ?? FontWeight.normal),
       );
     }
     return Padding(
-      padding:
-          padding == null ? EdgeInsets.all(padding!) : EdgeInsets.all(padding!),
+      padding: padding == null ? EdgeInsets.all(padding!) : EdgeInsets.all(padding!),
       child: Material(
           color: Colors.transparent,
-          child: Text(
-            characterCount == null
-                ? text!.tr
-                : text!.tr.substring(
-                        0,
-                        text!.tr.length < characterCount!
-                            ? text!.tr.length
-                            : characterCount) +
-                    (text!.tr.length < characterCount! ? "" : "..."),
-            textAlign: textAlign,
-            style: textStyle,
+          child: SizedBox(
+            width: isMatchParent! ? double.infinity : null,
+            child: buildText(textStyle),
           )),
+    );
+  }
+
+  Text buildText(TextStyle textStyle) {
+    return Text(
+      characterCount == null
+          ? text!.tr
+          : text!.tr.substring(0, text!.tr.length < characterCount! ? text!.tr.length : characterCount) +
+              (text!.tr.length < characterCount! ? "" : "..."),
+      textAlign: textAlign,
+      style: textStyle,
     );
   }
 }

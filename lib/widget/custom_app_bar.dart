@@ -3,11 +3,11 @@ import 'package:flutter_laid_back/widget/svg_loader.dart';
 import 'package:get/get.dart';
 
 class CustomAppbar extends StatelessWidget with PreferredSizeWidget {
-  final Icon? leadingIcon;
+  final Widget? leadingIcon;
   final VoidCallback?leadingClick;
-  final Icon? actionIcon;
+  final Widget? actionIcon;
   final Widget? title;
-  final Icon? actionIcon1;
+  final Widget? actionIcon1;
   final VoidCallback? actionClick;
   final VoidCallback? actionClick1;
   final bool showLeading;
@@ -31,12 +31,12 @@ class CustomAppbar extends StatelessWidget with PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
         backgroundColor:bgColor?? Get.theme.appBarTheme.backgroundColor,
-        centerTitle: true,
+        centerTitle: false,
         elevation: elevation?? 0.0,
         brightness: Get.theme.brightness,
         title: title ?? const SizedBox(),
         leading: !showLeading
-            ? const SizedBox()
+            ? null
             : (leadingIcon == null && showLeading)
                 ? BackButton(
                     color: Get.theme.iconTheme.color,

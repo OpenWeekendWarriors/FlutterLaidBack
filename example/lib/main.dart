@@ -1,6 +1,7 @@
 import 'package:example/color_schemes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_laid_back/widget/custom_app_bar.dart';
+import 'package:flutter_laid_back/widget/text_widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,14 +31,20 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          elevation: 15,shadowColor: Colors.white,
-          backgroundColor: Colors.white,
+        appBar: CustomAppbar(
+          bgColor: Colors.white,showLeading: false,
+          title: Row(
+            children: [
+              CustomText('dfkaidrwqu d' , textAlign: TextAlign.center , isMatchParent: false),
+            ],
+          ),
         ),
         body: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: EdgeInsets.all(8.0),
           child: Column(
-            children: [],
+            children: [
+
+            ],
           ),
         ),
         floatingActionButton: FloatingActionButton(
