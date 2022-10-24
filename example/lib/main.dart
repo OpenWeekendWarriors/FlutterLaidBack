@@ -1,5 +1,6 @@
 import 'package:example/color_schemes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_laid_back/widget/custom_app_bar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       // theme: Themes().lightTheme,
       theme: ThemeData(
-          useMaterial3: true, colorScheme: lightColorScheme, appBarTheme: AppBarTheme(backgroundColor: Colors.transparent)),
+          useMaterial3: true, colorScheme: lightColorScheme),
       darkTheme: ThemeData(useMaterial3: true, colorScheme: darkColorScheme),
       themeMode: ThemeMode.system,
       home: const Home(),
@@ -30,8 +31,8 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          elevation: 2,
-          title: const Text("Material Theme Builder"),
+          elevation: 15,shadowColor: Colors.white,
+          backgroundColor: Colors.white,
         ),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
