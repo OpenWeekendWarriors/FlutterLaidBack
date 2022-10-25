@@ -35,6 +35,7 @@ class CustomAppbar extends StatelessWidget with PreferredSizeWidget {
         elevation: elevation?? 0.0,
         brightness: Get.theme.brightness,
         title: title ?? const SizedBox(),
+        automaticallyImplyLeading: showLeading,
         leading: !showLeading
             ? null
             : (leadingIcon == null && showLeading)
