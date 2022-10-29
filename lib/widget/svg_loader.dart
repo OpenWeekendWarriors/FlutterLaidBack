@@ -7,7 +7,7 @@ Widget svgLoader(String img ,{ Color? color , double? width , double? height}){
       img,
       width: width,
       height: height,
-      color: color??Get.theme.textTheme.bodyText1!.color,
+      color: color,
       fit: BoxFit.contain,
       // color: Colors.red,
       // semanticsLabel: 'A red up arrow'
