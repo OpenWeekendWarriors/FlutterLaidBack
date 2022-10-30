@@ -29,6 +29,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  get:
   flutter_laid_back:
     path: ../
 
