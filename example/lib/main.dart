@@ -1,6 +1,7 @@
 import 'package:example/color_schemes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_laid_back/widget/custom_app_bar.dart';
+import 'package:flutter_laid_back/widget/text_field_widget.dart';
 import 'package:flutter_laid_back/widget/text_widget.dart';
 
 void main() {
@@ -32,10 +33,11 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: CustomAppbar(
-          bgColor: Colors.white,showLeading: false,
+          showLeading: false,
+          bgColor: Colors.white,
+          elevation: 50,
           title: Row(
             children: [
-              CustomText('dfkaidrwqu d' , textAlign: TextAlign.center , isMatchParent: false),
             ],
           ),
         ),
@@ -43,6 +45,7 @@ class Home extends StatelessWidget {
           padding: EdgeInsets.all(8.0),
           child: Column(
             children: [
+              CustomTextField(padding: EdgeInsets.symmetric(vertical: 20),),
 
             ],
           ),

@@ -13,6 +13,7 @@ class CustomAppbar extends StatelessWidget with PreferredSizeWidget {
   final bool showLeading;
   final Color? bgColor;
   final double? elevation;
+  final Color? shadowColor;
 
 
   CustomAppbar(
@@ -24,16 +25,19 @@ class CustomAppbar extends StatelessWidget with PreferredSizeWidget {
       this.actionClick1,
       this.title,
       this.bgColor,
+      this.shadowColor,
       this.elevation,
       this.showLeading = true});
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
+        bottomOpacity: 0.0,
         backgroundColor:bgColor?? Get.theme.appBarTheme.backgroundColor,
         centerTitle: false,
         elevation: elevation?? 0.0,
-        brightness: Get.theme.brightness,
+        surfaceTintColor:bgColor?? Get.theme.appBarTheme.backgroundColor,
+        shadowColor: shadowColor??Get.theme.appBarTheme.shadowColor,
         title: title ?? const SizedBox(),
         automaticallyImplyLeading: showLeading,
         leading: !showLeading

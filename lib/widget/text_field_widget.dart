@@ -96,6 +96,7 @@ class CustomTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     focusBorderColor =focusBorderColor?? Get.theme.primaryColor;
     return Container(
+      height: height??45,
       margin: const EdgeInsets.symmetric(vertical: 5),
       child: TextFormField(
         onFieldSubmitted: onFieldSubmitted,
@@ -150,7 +151,7 @@ class CustomTextField extends StatelessWidget {
           counterText:"",
           floatingLabelBehavior: FloatingLabelBehavior.auto,
           isDense: true,
-          fillColor: Colors.white,
+          fillColor: backgroundColor??Colors.white,
           filled: true, // dont forget this line
           contentPadding: padding??const EdgeInsets.symmetric(horizontal: 15 , vertical: 14),
           focusedBorder: enableBorder!
