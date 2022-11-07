@@ -13,6 +13,7 @@ class CustomText extends StatelessWidget {
   final double? height;
   final TextOverflow? overflow;
   final int? characterCount;
+  final int? maxLines;
   final bool? isMatchParent;
   final double? padding;
   final VoidCallback? onTap;
@@ -26,6 +27,7 @@ class CustomText extends StatelessWidget {
     this.fontWeight,
     this.textAlign = TextAlign.start,
     this.characterCount,
+    this.maxLines,
     this.padding = 2,
     this.startWidget,
     this.endWidget,
@@ -70,6 +72,7 @@ class CustomText extends StatelessWidget {
 
   Text buildText(TextStyle textStyle) {
     return Text(
+      maxLines: maxLines,
       characterCount == null
           ? text!.tr
           : text!.tr.substring(0, text!.tr.length < characterCount! ? text!.tr.length : characterCount) +
