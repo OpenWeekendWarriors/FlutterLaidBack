@@ -18,6 +18,7 @@ class CustomText extends StatelessWidget {
   final double? padding;
   final VoidCallback? onTap;
   final TextStyle? style;
+  final String? accessibilityId;
 
   const CustomText(
     this.text, {
@@ -37,6 +38,7 @@ class CustomText extends StatelessWidget {
     this.overflow,
     this.style,
     this.isMatchParent = false,
+    this.accessibilityId,
   }) : super(key: key);
 
   @override
@@ -44,6 +46,7 @@ class CustomText extends StatelessWidget {
     var textStyle = TextStyle(
         height: height ?? 1.1,
         overflow: overflow,
+
         letterSpacing: letterSpacing,
         // fontFamily: Utils.getFontFamily(),
         color: color ?? Get.theme.textTheme.bodyText1!.color,
@@ -72,6 +75,7 @@ class CustomText extends StatelessWidget {
 
   Text buildText(TextStyle textStyle) {
     return Text(
+      semanticsLabel: accessibilityId,
       maxLines: maxLines,
       characterCount == null
           ? text!.tr
