@@ -1,9 +1,8 @@
 import 'package:example/color_schemes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_laid_back/widget/custom_app_bar.dart';
+import 'package:flutter_laid_back/widget/custom_drop_down.dart';
 import 'package:flutter_laid_back/widget/snackbar.dart';
-import 'package:flutter_laid_back/widget/text_field_widget.dart';
-import 'package:flutter_laid_back/widget/text_widget.dart';
 import 'package:get/get.dart';
 
 void main() {
@@ -18,8 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       // theme: Themes().lightTheme,
-      theme: ThemeData(
-          useMaterial3: true, colorScheme: lightColorScheme),
+      theme: ThemeData(useMaterial3: true, colorScheme: lightColorScheme),
       darkTheme: ThemeData(useMaterial3: true, colorScheme: darkColorScheme),
       themeMode: ThemeMode.system,
       home: const Home(),
@@ -39,22 +37,25 @@ class Home extends StatelessWidget {
           bgColor: Colors.white,
           elevation: 50,
           title: Row(
-            children: [
-            ],
+            children: [],
           ),
         ),
         body: Padding(
           padding: EdgeInsets.all(8.0),
           child: Column(
             children: [
-
-
+              CustomDropDown(
+                isExpand: false,
+                margin: EdgeInsets.symmetric(vertical: 1),
+                items: [DropdownItem('1'), DropdownItem('2')],
+                arrowIcon: Icon(Icons.arrow_drop_down_outlined),
+              )
             ],
           ),
         ),
         floatingActionButton: FloatingActionButton(
             onPressed: () => {
-              showSnackBar(text: 'asdkfjaskdj'),
+                  showSnackBar(text: 'asdkfjaskdj'),
 
                   // ScaffoldMessenger.of(context).showMaterialBanner(
                   //   MaterialBanner(
@@ -70,9 +71,6 @@ class Home extends StatelessWidget {
                   //     ],
                   //   ),
                   // ),
-
-
-
                 },
             tooltip: 'Increment'));
   }

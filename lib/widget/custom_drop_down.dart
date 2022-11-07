@@ -17,6 +17,7 @@ class CustomDropDown extends StatefulWidget {
   final Icon? arrowIcon;
   final bool? isExpand;
   final DropdownItem? iniValue;
+  final EdgeInsets? margin;
 
 
   const CustomDropDown(
@@ -32,6 +33,7 @@ class CustomDropDown extends StatefulWidget {
       this.dbTextColor,
       this.bgColordropdown,
       this.isExpand,
+      this.margin,
       this.iniValue})
       : super(key: key);
 
@@ -62,7 +64,7 @@ class _CustomDropDownState extends State<CustomDropDown> {
         borderRadius: BorderRadius.circular(widget.borderRadios?? brd_radius_medium),
       ),
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
-      margin: const EdgeInsets.symmetric(vertical: 10),
+      margin: widget.margin??const EdgeInsets.symmetric(vertical: 10),
       child: DropdownButton(
         dropdownColor: widget.bgColordropdown??Colors.white,
         borderRadius:BorderRadius.all(Radius.circular(widget.borderRadios ?? 0)) ,
@@ -81,6 +83,7 @@ class _CustomDropDownState extends State<CustomDropDown> {
           return DropdownMenuItem(
             value: item,
             child: Row(
+              mainAxisSize: MainAxisSize.min,
               children: [
                 item.icon == null
                     ? const SizedBox()

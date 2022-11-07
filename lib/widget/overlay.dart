@@ -15,18 +15,14 @@ class LoadingOverlay {
   }
 
   void show({bool isUpload = false}) {
-    Timer.periodic(const Duration(seconds: 20), (timer) {
+    showDialog(
+        context: _context!,
+        barrierDismissible: false,
+        builder: (context) => _FullScreenLoader(
+              isUpload: isUpload,
+            ));
 
-    });
-
-    // showDialog(
-    //     context: _context!,
-    //     barrierDismissible: false,
-    //     builder: (context) => _FullScreenLoader(
-    //           isUpload: isUpload,
-    //         ));
-
-    Navigator.of(_context!).push(TutorialOverlay());
+    // Navigator.of(_context!).push(TutorialOverlay());
   }
 
   Future<T> during<T>(Future<T> future) {
