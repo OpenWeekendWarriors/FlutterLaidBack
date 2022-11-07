@@ -45,152 +45,156 @@ class CustomTextField extends StatelessWidget {
   final bool? autoFocus;
   final TextInputAction? textInputAction;
   final TextDirection? textDirection;
+  final String? accessibilityId;
+
   // final ValueChanged<bool>? onFocusChange;
 
   final errorText;
 
-
-   CustomTextField(
-      {Key? key, this.hint='',
-      this.onChange,
-      this.initVal,
-      this.backgroundColor,
-      this.textColor,
-      this.fontSize = text_size_medium,
-      this.textAlign,
-      this.height,
-      this.width,
-      this.padding,
-      this.focusNode,
-      this.onFieldSubmitted,
-      this.lable = '',
-      this.isValid,
-      this.borderRadius = brd_radius_small,
-      this.withInputFormatters,
-      this.suffixIcon,
-      this.elevation,
-      this.prefixIcon,
-      this.outSidePadding,
-      this.textEditingController,
-      this.hintColor,
-      this.focusBorderColor,
-      this.unFocusBorderColor,
-      this.isBold = false,
-      this.isObscureText = false,
-      this.maxLine = 1,
-      this.maxLength = 500,
-      this.enableBorder = true,
-      this.errorText = 'مقدار را به طور صحیح وارد کنید',
-      this.inputFormatters,
-      this.validator,
-      this.onTap,
-      this.isReadOnly,
-      // this.onFocusChange,
-      this.isCounter = false,
-      this.autoFocus = false,
-      this.textDirection = TextDirection.rtl,
-      this.textInputAction = TextInputAction.done,
-      this.textInputType  = TextInputType.text}) : super(key: key);
+  CustomTextField({
+    Key? key,
+    this.hint = '',
+    this.onChange,
+    this.initVal,
+    this.backgroundColor,
+    this.textColor,
+    this.fontSize = text_size_medium,
+    this.textAlign,
+    this.height,
+    this.width,
+    this.padding,
+    this.focusNode,
+    this.onFieldSubmitted,
+    this.lable = '',
+    this.isValid,
+    this.borderRadius = brd_radius_small,
+    this.withInputFormatters,
+    this.suffixIcon,
+    this.elevation,
+    this.prefixIcon,
+    this.outSidePadding,
+    this.textEditingController,
+    this.hintColor,
+    this.focusBorderColor,
+    this.unFocusBorderColor,
+    this.isBold = false,
+    this.isObscureText = false,
+    this.maxLine = 1,
+    this.maxLength = 500,
+    this.enableBorder = true,
+    this.errorText = 'مقدار را به طور صحیح وارد کنید',
+    this.inputFormatters,
+    this.validator,
+    this.onTap,
+    this.isReadOnly,
+    // this.onFocusChange,
+    this.isCounter = false,
+    this.autoFocus = false,
+    this.textDirection = TextDirection.rtl,
+    this.textInputAction = TextInputAction.done,
+    this.textInputType = TextInputType.text,
+    this.accessibilityId,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    focusBorderColor =focusBorderColor?? Get.theme.primaryColor;
+    focusBorderColor = focusBorderColor ?? Get.theme.primaryColor;
     return Container(
-      height: height??45,
+      height: height ?? 45,
       margin: const EdgeInsets.symmetric(vertical: 5),
-      child: TextFormField(
-        onFieldSubmitted: onFieldSubmitted,
-        focusNode: focusNode??FocusNode(),
-        autofocus: autoFocus!,
-        // initialValue:initVal??'' ,
-        textDirection: textDirection  ,
-        textInputAction:textInputAction ,
+      child: Semantics(
+        label: accessibilityId,
+        child: TextFormField(
+          onFieldSubmitted: onFieldSubmitted,
+          focusNode: focusNode ?? FocusNode(),
+          autofocus: autoFocus!,
+          // initialValue:initVal??'' ,
+          textDirection: textDirection,
+          textInputAction: textInputAction,
           autovalidateMode: AutovalidateMode.onUserInteraction,
           cursorWidth: 2,
           cursorHeight: 25,
           showCursor: true,
           autocorrect: true,
-        onTap:onTap ,
-        // validator: validator ??
-        //     (value) {
-        //       if (value!.isEmpty) {
-        //         return errorText;
-        //       }
-        //       return null;
-        //     },
+          onTap: onTap,
+          // validator: validator ??
+          //     (value) {
+          //       if (value!.isEmpty) {
+          //         return errorText;
+          //       }
+          //       return null;
+          //     },
 
-        validator: validator,
+          validator: validator,
 
+          readOnly: isReadOnly ?? false,
+          maxLength: maxLength,
+          obscureText: isObscureText!,
+          cursorColor: Get.theme.primaryColorLight,
+          controller: textEditingController,
+          inputFormatters: inputFormatters ?? [],
+          // [FilteringTextInputFormatter.allow(RegExp(r"[a-zA-Z0-9]+"))],
 
-        readOnly:isReadOnly??false ,
-        maxLength:maxLength,
-        obscureText: isObscureText!,
-        cursorColor: Get.theme.primaryColorLight,
-        controller: textEditingController,
-        inputFormatters: inputFormatters ?? [],
-        // [FilteringTextInputFormatter.allow(RegExp(r"[a-zA-Z0-9]+"))],
-
-        // : [
-        //
-        // LengthLimitingTextInputFormatter(2),
-        //   ],
-        onChanged: onChange,
-        keyboardType: textInputType ?? TextInputType.text,
-        textAlign: textAlign ?? TextAlign.start,
-        // maxLines: maxLine ?? 1,
-        //   minLines: 1,//Normal textInputField will be displayed
+          // : [
+          //
+          // LengthLimitingTextInputFormatter(2),
+          //   ],
+          onChanged: onChange,
+          keyboardType: textInputType ?? TextInputType.text,
+          textAlign: textAlign ?? TextAlign.start,
+          // maxLines: maxLine ?? 1,
+          //   minLines: 1,//Normal textInputField will be displayed
           maxLines: maxLine,
 
-
-        style: TextStyle(
-            // fontFamily: Utils.getFontFamily(),
-            color: Get.theme.textTheme.bodyText1!.color,
-            fontSize: fontSize + 2,
-            fontWeight: FontWeight.w700),
-        decoration: InputDecoration(
-          counterText:"",
-          floatingLabelBehavior: FloatingLabelBehavior.auto,
-          isDense: true,
-          fillColor: backgroundColor??Colors.white,
-          filled: true, // dont forget this line
-          contentPadding: padding??const EdgeInsets.symmetric(horizontal: 15 , vertical: 14),
-          focusedBorder: enableBorder!
-              ? OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(borderRadius!),
-                  borderSide: BorderSide(
-                      color: focusBorderColor! ))
-              : InputBorder.none,
-          disabledBorder: enableBorder!
-              ? OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(borderRadius!),
-                  borderSide: BorderSide(
-                      color: focusBorderColor! ))
-              : InputBorder.none,
-          enabledBorder: enableBorder!
-              ? OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(borderRadius!),
-                  borderSide: BorderSide(
-                      color: unFocusBorderColor??focusBorderColor!))
-              : InputBorder.none,
-          border: enableBorder!
-              ? OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(borderRadius!),
-                  borderSide: BorderSide(
-                      color: focusBorderColor! ))
-              : InputBorder.none,
-          prefixIcon: prefixIcon,
-          suffixIcon: suffixIcon ,
-          labelText: lable?.tr,
-          alignLabelWithHint: true,
-          labelStyle: TextStyle(
-              color:Get.theme.hintColor,
-              fontSize: (fontSize + 2),
-              fontWeight: isBold! ? FontWeight.bold : FontWeight.normal),
-          hintText: hint!.tr,
-          hintStyle: TextStyle(
-              color: Get.theme.hintColor,
-              fontSize: fontSize,
-              fontWeight: isBold! ? FontWeight.bold : FontWeight.normal),
+          style: TextStyle(
+              // fontFamily: Utils.getFontFamily(),
+              color: Get.theme.textTheme.bodyText1!.color,
+              fontSize: fontSize + 2,
+              fontWeight: FontWeight.w700),
+          decoration: InputDecoration(
+            counterText: "",
+            floatingLabelBehavior: FloatingLabelBehavior.auto,
+            isDense: true,
+            fillColor: backgroundColor ?? Colors.white,
+            filled: true,
+            // dont forget this line
+            contentPadding: padding ??
+                const EdgeInsets.symmetric(horizontal: 15, vertical: 14),
+            focusedBorder: enableBorder!
+                ? OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(borderRadius!),
+                    borderSide: BorderSide(color: focusBorderColor!))
+                : InputBorder.none,
+            disabledBorder: enableBorder!
+                ? OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(borderRadius!),
+                    borderSide: BorderSide(color: focusBorderColor!))
+                : InputBorder.none,
+            enabledBorder: enableBorder!
+                ? OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(borderRadius!),
+                    borderSide: BorderSide(
+                        color: unFocusBorderColor ?? focusBorderColor!))
+                : InputBorder.none,
+            border: enableBorder!
+                ? OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(borderRadius!),
+                    borderSide: BorderSide(color: focusBorderColor!))
+                : InputBorder.none,
+            prefixIcon: prefixIcon,
+            suffixIcon: suffixIcon,
+            labelText: lable?.tr,
+            alignLabelWithHint: true,
+            labelStyle: TextStyle(
+                color: Get.theme.hintColor,
+                fontSize: (fontSize + 2),
+                fontWeight: isBold! ? FontWeight.bold : FontWeight.normal),
+            hintText: hint!.tr,
+            hintStyle: TextStyle(
+                color: Get.theme.hintColor,
+                fontSize: fontSize,
+                fontWeight: isBold! ? FontWeight.bold : FontWeight.normal),
+          ),
         ),
       ),
     );
