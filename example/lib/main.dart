@@ -44,34 +44,46 @@ class Home extends StatelessWidget {
           padding: EdgeInsets.all(8.0),
           child: Column(
             children: [
-              CustomDropDown(
-                isExpand: false,
-                margin: EdgeInsets.symmetric(vertical: 1),
-                items: [DropdownItem('1'), DropdownItem('2')],
-                arrowIcon: Icon(Icons.arrow_drop_down_outlined),
-              )
+            CustomDropDown(
+
+            hint: 'خانه ها',
+            bgColor: Colors.transparent,
+            items: [
+                const DropdownItem('ویلای استانبول'),
+              const DropdownItem('ویلای استانبول')
+            ],
+            borderColor: Colors.transparent,
+            borderRadios: 10,
+            bgColordropdown: Colors.white,
+            arrowIcon: const Icon(
+              Icons.keyboard_arrow_down,
+              color: Colors.black,
+            ),
+            isExpand: false,
+            dbTextColor: Colors.black,)
             ],
           ),
         ),
         floatingActionButton: FloatingActionButton(
-            onPressed: () => {
-                  showSnackBar(text: 'asdkfjaskdj'),
+            onPressed: () =>
+            {
+              showSnackBar(text: 'asdkfjaskdj'),
 
-                  // ScaffoldMessenger.of(context).showMaterialBanner(
-                  //   MaterialBanner(
-                  //     elevation: 25,
-                  //     content: const Text('Hello, I am a Material Banner'),
-                  //     leading: const Icon(Icons.info),
-                  //     backgroundColor: Colors.green,
-                  //     actions: [
-                  //       TextButton(
-                  //         child: const Text('Dismiss'),
-                  //         onPressed: () => ScaffoldMessenger.of(context).hideCurrentMaterialBanner(),
-                  //       ),
-                  //     ],
-                  //   ),
-                  // ),
-                },
+              // ScaffoldMessenger.of(context).showMaterialBanner(
+              //   MaterialBanner(
+              //     elevation: 25,
+              //     content: const Text('Hello, I am a Material Banner'),
+              //     leading: const Icon(Icons.info),
+              //     backgroundColor: Colors.green,
+              //     actions: [
+              //       TextButton(
+              //         child: const Text('Dismiss'),
+              //         onPressed: () => ScaffoldMessenger.of(context).hideCurrentMaterialBanner(),
+              //       ),
+              //     ],
+              //   ),
+              // ),
+            },
             tooltip: 'Increment'));
   }
 }

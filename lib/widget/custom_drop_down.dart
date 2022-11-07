@@ -72,7 +72,7 @@ class _CustomDropDownState extends State<CustomDropDown> {
           Icons.arrow_drop_down_circle,
           color: widget.dropDownIconColor ?? Get.theme.iconTheme.color,
         ),
-
+        isDense: true,
         hint: CustomText(
           widget.hint ?? '',
           color: widget.dbTextColor?? Get.theme.hintColor,
