@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_laid_back/widget/custom_app_bar.dart';
 import 'package:flutter_laid_back/widget/custom_drop_down.dart';
 import 'package:flutter_laid_back/widget/snackbar.dart';
+import 'package:flutter_laid_back/widget/text_field_widget.dart';
 import 'package:get/get.dart';
 
 void main() {
@@ -44,23 +45,19 @@ class Home extends StatelessWidget {
           padding: EdgeInsets.all(8.0),
           child: Column(
             children: [
-            CustomDropDown(
 
-            hint: 'خانه ها',
-            bgColor: Colors.transparent,
-            items: [
-                const DropdownItem('ویلای استانبول'),
-              const DropdownItem('ویلای استانبول')
-            ],
-            borderColor: Colors.transparent,
-            borderRadios: 10,
-            bgColordropdown: Colors.white,
-            arrowIcon: const Icon(
-              Icons.keyboard_arrow_down,
-              color: Colors.black,
-            ),
-            isExpand: false,
-            dbTextColor: Colors.black,)
+              CustomTextField(errorText: '',
+                lable: 'username',
+                validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter password.';
+                }
+                if (value.length < 8 || value.length > 45) {
+                  return 'password is not correct';
+                }
+                return null;
+              },)
+
             ],
           ),
         ),

@@ -96,7 +96,7 @@ class CustomTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     focusBorderColor =focusBorderColor?? Get.theme.primaryColor;
     return Container(
-      height: height??45,
+      height: height,
       margin: const EdgeInsets.symmetric(vertical: 5),
       child: TextFormField(
         onFieldSubmitted: onFieldSubmitted,
