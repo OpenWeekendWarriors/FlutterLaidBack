@@ -1,9 +1,11 @@
 import 'package:example/color_schemes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_laid_back/widget/button_widget.dart';
 import 'package:flutter_laid_back/widget/custom_app_bar.dart';
 import 'package:flutter_laid_back/widget/custom_drop_down.dart';
 import 'package:flutter_laid_back/widget/snackbar.dart';
 import 'package:flutter_laid_back/widget/text_field_widget.dart';
+import 'package:flutter_laid_back/widget/text_widget.dart';
 import 'package:get/get.dart';
 
 void main() {
@@ -47,7 +49,6 @@ class Home extends StatelessWidget {
             children: [
 
               CustomTextField(errorText: '',
-                lable: 'username',
                 validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'Please enter password.';
@@ -56,7 +57,10 @@ class Home extends StatelessWidget {
                   return 'password is not correct';
                 }
                 return null;
-              },)
+              },),
+
+              CustomButton(borderWidth: 1,borderColor: Colors.yellow,)
+
 
             ],
           ),

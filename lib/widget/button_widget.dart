@@ -11,6 +11,7 @@ class CustomButton extends StatelessWidget {
   final Color? outlineColor;
   final Color? splashColor;
   final Color? borderColor;
+  final double? borderWidth;
   final int? type;
   final double? borderRadios;
   final double? elevation;
@@ -30,6 +31,7 @@ class CustomButton extends StatelessWidget {
       {Key? key,
       this.textColor,
       this.outlineColor,
+      this.borderWidth = 1,
       this.splashColor,
       this.borderColor,
       this.type = 1,
@@ -62,7 +64,7 @@ class CustomButton extends StatelessWidget {
               },
               // textColor: MyColor.white,
               shape: RoundedRectangleBorder(
-                  side: BorderSide(color: outlineColor!, width: 1, style: BorderStyle.solid),
+                  side: BorderSide(color: outlineColor!, width: borderWidth!, style: BorderStyle.solid),
                   borderRadius: BorderRadius.circular(borderRadios ?? brd_radius_medium)),
               child: title != null
                   ? CustomText(
@@ -98,7 +100,7 @@ class CustomButton extends StatelessWidget {
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(borderRadios ?? brd_radius_medium)),
               child: Ink(
                 decoration: BoxDecoration(
-                    border: Border.all(color: borderColor ?? Colors.transparent),
+                    border: Border.all(color: borderColor ?? Colors.transparent , width: borderWidth!),
                     gradient: LinearGradient(
                       colors: bgColor ??
                           [
