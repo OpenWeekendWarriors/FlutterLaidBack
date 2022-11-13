@@ -5,8 +5,13 @@ import 'package:get/get.dart';
 class CustomCheckBox extends StatefulWidget {
   Function(bool)? isChecked;
   Widget? child;
+  Color? fillColor;
+  Color? borderColor;
+  Color? checkColor;
+  double? borderRadius;
+  Size? size;
 
-  CustomCheckBox({Key? key, this.child, this.isChecked}) : super(key: key);
+  CustomCheckBox({Key? key, this.size = const Size(20, 20),this.borderRadius ,this.child, this.isChecked , this.borderColor,this.fillColor ,this.checkColor}) : super(key: key);
 
   @override
   _CustomCheckBoxState createState() => _CustomCheckBoxState();
@@ -24,28 +29,39 @@ class _CustomCheckBoxState extends State<CustomCheckBox> {
           widget.isChecked!.call(_value);
         });
       },
-      child: Container(
-        height: 20,
-        width: 20,
-        margin: const EdgeInsets.symmetric(horizontal: 5),
-        decoration: BoxDecoration(
-            shape: BoxShape.rectangle,
-            color: _value
-                ? Get.theme.checkboxTheme.fillColor
-                    ?.resolve(<MaterialState>{MaterialState.selected})
-                : Colors.transparent,
-            border: Border.all(
-              color: Get.theme.checkboxTheme.checkColor!
-                  .resolve(<MaterialState>{MaterialState.selected})!,
-            ),
-            borderRadius: BorderRadius.circular(5)),
-        child: _value
-            ? Icon(
-                Icons.check,
-                size: icon_size_small,
-                color: Get.theme.primaryColor,
-              )
-            : const SizedBox(),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          widget.child??const SizedBox(),
+          AnimatedContainer(
+            height:widget.size?.height,
+            width: widget.size?.width,
+            margin: const EdgeInsets.symmetric(horizontal: 5),
+            decoration: BoxDecoration(
+                shape: BoxShape.rectangle,
+                color: _value
+                    ? (widget.fillColor?? Get.theme.checkboxTheme.fillColor
+                        ?.resolve(<MaterialState>{MaterialState.selected}))
+                    : Colors.transparent,
+                border: Border.all(
+                  color: (widget.borderColor?? Get.theme.checkboxTheme.checkColor!
+                      .resolve(<MaterialState>{MaterialState.selected})!),
+                ),
+                borderRadius: BorderRadius.circular(widget.borderRadius??5)),
+            alignment:
+            _value ? Alignment.center : AlignmentDirectional.topCenter,
+            duration: const Duration(seconds: 1),
+            curve: Curves.easeInOut,
+            child: _value
+                ? Icon(
+                    Icons.check,
+                    size: widget.size!.width /1.2,
+                    color: widget.checkColor??Get.theme.primaryColor,
+                  )
+                : const SizedBox(),
+          ),
+
+        ],
       ),
     );
   }
