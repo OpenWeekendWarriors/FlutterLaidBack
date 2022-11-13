@@ -10,22 +10,18 @@ class CustomKeyListener extends StatelessWidget {
   var publisher = BehaviorSubject<RawKeyEventDataAndroid>();
 
   CustomKeyListener({Key? key, this.focusNode, this.child, this.callback}) : super(key: key) {
-    // publisher.stream.throttle((eve) {
-    //   print(eve.toString());
-    //   return TimerStream(
-    //       true,
-    //       Duration(
-    //           seconds: eve.keyCode == KEY_CENTER ||
-    //                   eve.keyCode == KEY_PLUS ||
-    //                   eve.keyCode == KEY_NEGETIVE ||
-    //                   eve.keyCode == KEY_PLUS_MAGIC ||
-    //                   eve.keyCode == KEY_NEGETIVE_MAGIC
-    //               ? 2
-    //               : 0));
-    // }).listen((event) {
-    //   callback!.call(event);
-    //   debugPrint('############${event.keyCode} ' + DateTime.now().toString());
-    // });
+    publisher.stream.throttle((eve) {
+      print(eve.toString());
+      return TimerStream(
+          true,
+          Duration(
+              seconds: eve.keyCode == 23
+                  ? 2
+                  : 0));
+    }).listen((event) {
+      callback!.call(event);
+      debugPrint('############${event.keyCode} ' + DateTime.now().toString());
+    });
   }
 
   @override

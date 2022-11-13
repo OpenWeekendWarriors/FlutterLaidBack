@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_laid_back/conf/const.dart';
 import 'package:get/get.dart';
@@ -11,15 +12,16 @@ class CustomCheckBox extends StatefulWidget {
   double? borderRadius;
   Size? size;
   FocusNode? focusNode;
+  bool? value;
 
-  CustomCheckBox({Key? key,this.focusNode, this.size = const Size(20, 20),this.borderRadius ,this.child, this.isChecked , this.borderColor,this.fillColor ,this.checkColor}) : super(key: key);
+  CustomCheckBox({Key? key,this.focusNode, this.value, this.size = const Size(20, 20),this.borderRadius ,this.child, this.isChecked , this.borderColor,this.fillColor ,this.checkColor}) : super(key: key);
 
   @override
   _CustomCheckBoxState createState() => _CustomCheckBoxState();
 }
 
 class _CustomCheckBoxState extends State<CustomCheckBox> {
-  bool _value = false;
+
 
   @override
   Widget build(BuildContext context) {
@@ -27,8 +29,8 @@ class _CustomCheckBoxState extends State<CustomCheckBox> {
       focusNode:widget.focusNode,
       onTap: () {
         setState(() {
-          _value = !_value;
-          widget.isChecked!.call(_value);
+          widget.value = !widget.value!;
+          widget.isChecked!.call(widget.value!);
         });
       },
       child: Row(
@@ -41,7 +43,7 @@ class _CustomCheckBoxState extends State<CustomCheckBox> {
             margin: const EdgeInsets.symmetric(horizontal: 5),
             decoration: BoxDecoration(
                 shape: BoxShape.rectangle,
-                color: _value
+                color: widget.value!
                     ? (widget.fillColor?? Get.theme.checkboxTheme.fillColor
                         ?.resolve(<MaterialState>{MaterialState.selected}))
                     : Colors.transparent,
@@ -51,10 +53,10 @@ class _CustomCheckBoxState extends State<CustomCheckBox> {
                 ),
                 borderRadius: BorderRadius.circular(widget.borderRadius??5)),
             alignment:
-            _value ? Alignment.center : AlignmentDirectional.topCenter,
+            widget.value! ? Alignment.center : AlignmentDirectional.topCenter,
             duration: const Duration(milliseconds: 200),
             curve: Curves.easeInOut,
-            child: _value
+            child: widget.value!
                 ? Icon(
                     Icons.check,
                     size: widget.size!.width /1.2,
