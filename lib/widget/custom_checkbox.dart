@@ -10,8 +10,9 @@ class CustomCheckBox extends StatefulWidget {
   Color? checkColor;
   double? borderRadius;
   Size? size;
+  FocusNode? focusNode;
 
-  CustomCheckBox({Key? key, this.size = const Size(20, 20),this.borderRadius ,this.child, this.isChecked , this.borderColor,this.fillColor ,this.checkColor}) : super(key: key);
+  CustomCheckBox({Key? key,this.focusNode, this.size = const Size(20, 20),this.borderRadius ,this.child, this.isChecked , this.borderColor,this.fillColor ,this.checkColor}) : super(key: key);
 
   @override
   _CustomCheckBoxState createState() => _CustomCheckBoxState();
@@ -23,6 +24,7 @@ class _CustomCheckBoxState extends State<CustomCheckBox> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      focusNode:widget.focusNode,
       onTap: () {
         setState(() {
           _value = !_value;
@@ -50,7 +52,7 @@ class _CustomCheckBoxState extends State<CustomCheckBox> {
                 borderRadius: BorderRadius.circular(widget.borderRadius??5)),
             alignment:
             _value ? Alignment.center : AlignmentDirectional.topCenter,
-            duration: const Duration(seconds: 1),
+            duration: const Duration(milliseconds: 200),
             curve: Curves.easeInOut,
             child: _value
                 ? Icon(
