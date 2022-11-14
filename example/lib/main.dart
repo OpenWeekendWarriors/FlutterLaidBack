@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_laid_back/widget/button_widget.dart';
 import 'package:flutter_laid_back/widget/custom_app_bar.dart';
 import 'package:flutter_laid_back/widget/custom_checkbox.dart';
+import 'package:flutter_laid_back/widget/custom_drop_down.dart';
 import 'package:flutter_laid_back/widget/custom_key_listener.dart';
 import 'package:flutter_laid_back/widget/snackbar.dart';
 import 'package:flutter_laid_back/widget/text_field_widget.dart';
@@ -52,34 +53,19 @@ class Home extends StatelessWidget {
           padding: EdgeInsets.all(8.0),
           child: Column(
             children: [
-              Align(
-                alignment: Alignment.centerRight,
-                child: CustomKeyListener(
-                  focusNode: focusNode,
-                  callback: (p0) {
-                    // print(p0toString());
-
-                    if (p0.keyCode == 23) {
-                      isCh.value = !isCh.value;
-                    }
-                  },
-                  child: Obx(() {
-                    return CustomCheckBox(value: isCh.value,
-                      borderColor: Colors.black,
-
-                      //focusNode: logic.checkBoxFocus,
-
-
-                      child: CustomText('test',),
-
-
-                      isChecked: (isCheck) {
-                        print(isCheck.toString());
-                      },
-                    );
-                  }),
-                ),
-              ),
+              CustomDropDown(
+                hint: 'انتخاب زبان',
+                bgColor: Colors.white,
+                items: const [DropdownItem('فارسی'), DropdownItem('انگلیسی')],
+                borderColor: Colors.white.withAlpha(25),
+                borderRadios: 10,
+                bgColordropdown: Colors.white,
+                arrowIcon: const Icon(Icons.keyboard_arrow_down,color: Colors.green,),
+                isExpand: false,
+                onSelection: (value){
+                  // logic.langSelection = value;
+                },
+              )
 
             ],
           ),

@@ -18,7 +18,7 @@ class CustomDropDown extends StatefulWidget {
   final bool? isExpand;
   final DropdownItem? iniValue;
   final EdgeInsets? margin;
-
+  final bool? isDense;
 
   const CustomDropDown(
       {Key? key,
@@ -34,6 +34,7 @@ class CustomDropDown extends StatefulWidget {
       this.bgColordropdown,
       this.isExpand,
       this.margin,
+      this.isDense,
       this.iniValue})
       : super(key: key);
 
@@ -53,31 +54,31 @@ class _CustomDropDownState extends State<CustomDropDown> {
   }
 
   @override
-
-
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
         color: widget.bgColor,
-
         border: Border.all(color: widget.borderColor ?? Colors.white),
-        borderRadius: BorderRadius.circular(widget.borderRadios?? brd_radius_medium),
+        borderRadius: BorderRadius.circular(widget.borderRadios ?? brd_radius_medium),
       ),
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
-      margin: widget.margin??const EdgeInsets.symmetric(vertical: 10),
+      margin: widget.margin ?? const EdgeInsets.symmetric(vertical: 10),
       child: DropdownButton(
-        dropdownColor: widget.bgColordropdown??Colors.white,
-        borderRadius:BorderRadius.all(Radius.circular(widget.borderRadios ?? 0)) ,
-        icon: widget.arrowIcon?? Icon(
-          Icons.arrow_drop_down_circle,
-          color: widget.dropDownIconColor ?? Get.theme.iconTheme.color,
-        ),
-        isDense: true,
+        dropdownColor: widget.bgColordropdown ?? Colors.white,
+        borderRadius: BorderRadius.all(Radius.circular(widget.borderRadios ?? 0)),
+        icon: widget.arrowIcon ??
+            Icon(
+              Icons.arrow_drop_down_circle,
+              color: widget.dropDownIconColor ?? Get.theme.iconTheme.color,
+            ),
+        elevation: 50,
+        isDense: widget.isDense ?? false,
+        style: TextStyle(color: Colors.yellow, fontWeight: FontWeight.bold , height: 60),
         hint: CustomText(
           widget.hint ?? '',
-          color: widget.dbTextColor?? Get.theme.hintColor,
+          color: widget.dbTextColor ?? Get.theme.hintColor,
         ),
-        isExpanded: widget.isExpand ?? true,
+        // isExpanded: widget.isExpand ?? true,
         underline: const SizedBox(),
         items: widget.items?.map((DropdownItem item) {
           return DropdownMenuItem(
@@ -90,7 +91,10 @@ class _CustomDropDownState extends State<CustomDropDown> {
                     : item.icon!.startsWith('asset')
                         ? CircleAvatar(
                             radius: 15,
-                            backgroundImage: Image.asset(item.icon! , fit: BoxFit.contain,).image,
+                            backgroundImage: Image.asset(
+                              item.icon!,
+                              fit: BoxFit.contain,
+                            ).image,
                           )
                         : BuildCachedImageWidget(
                             imageUrl: item.icon!,
@@ -103,7 +107,7 @@ class _CustomDropDownState extends State<CustomDropDown> {
                 ),
                 CustomText(
                   item.name,
-                  color: widget.dbTextColor?? Get.theme.hintColor,
+                  color: widget.dbTextColor ?? Get.theme.hintColor,
                 )
               ],
             ),
@@ -121,10 +125,8 @@ class _CustomDropDownState extends State<CustomDropDown> {
   }
 }
 
-
-
 class DropdownItem {
-  const DropdownItem(this.name, {this.icon , this.id});
+  const DropdownItem(this.name, {this.icon, this.id});
 
   final String name;
   final int? id;
