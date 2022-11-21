@@ -5,6 +5,7 @@ import 'package:flutter_laid_back/widget/custom_app_bar.dart';
 import 'package:flutter_laid_back/widget/custom_checkbox.dart';
 import 'package:flutter_laid_back/widget/custom_drop_down.dart';
 import 'package:flutter_laid_back/widget/custom_key_listener.dart';
+import 'package:flutter_laid_back/widget/custom_popup_dialog.dart';
 import 'package:flutter_laid_back/widget/snackbar.dart';
 import 'package:flutter_laid_back/widget/text_field_widget.dart';
 import 'package:flutter_laid_back/widget/text_widget.dart';
@@ -53,6 +54,9 @@ class Home extends StatelessWidget {
           padding: EdgeInsets.all(8.0),
           child: Column(
             children: [
+
+
+
               CustomDropDown(
                 hint: 'انتخاب زبان',
                 bgColor: Colors.white,
@@ -74,6 +78,7 @@ class Home extends StatelessWidget {
             onPressed: () =>
             {
               showSnackBar(text: 'asdkfjaskdj'),
+              showPopupDialog(context , title: 'َُِسیسیشی' , message: 'یسبسیبسیبسبسیبسیبسیب'),
 
               // ScaffoldMessenger.of(context).showMaterialBanner(
               //   MaterialBanner(
