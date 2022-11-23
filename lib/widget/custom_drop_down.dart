@@ -78,7 +78,7 @@ class _CustomDropDownState extends State<CustomDropDown> {
           widget.hint ?? '',
           color: widget.dbTextColor ?? Get.theme.hintColor,
         ),
-        // isExpanded: widget.isExpand ?? true,
+        isExpanded: widget.isExpand ?? true,
         underline: const SizedBox(),
         items: widget.items?.map((DropdownItem item) {
           return DropdownMenuItem(

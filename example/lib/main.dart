@@ -63,6 +63,7 @@ class Home extends StatelessWidget {
                 items: const [DropdownItem('فارسی'), DropdownItem('انگلیسی')],
                 borderColor: Colors.white.withAlpha(25),
                 borderRadios: 10,
+                isDense: false,
                 bgColordropdown: Colors.white,
                 arrowIcon: const Icon(Icons.keyboard_arrow_down,color: Colors.green,),
                 isExpand: false,
