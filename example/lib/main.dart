@@ -55,7 +55,7 @@ class Home extends StatelessWidget {
           child: Column(
             children: [
 
-
+                CustomText('text' ,startWidget: Icon(Icons.add),endWidget: Icon(Icons.add_a_photo),),
 
               CustomDropDown(
                 hint: 'انتخاب زبان',

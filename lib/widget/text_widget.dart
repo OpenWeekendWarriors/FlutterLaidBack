@@ -65,7 +65,14 @@ class CustomText extends StatelessWidget {
           color: Colors.transparent,
           child: SizedBox(
             width: isMatchParent! ? double.infinity : null,
-            child: buildText(textStyle),
+            child: Row(
+              children: [
+                startWidget??SizedBox(),
+                buildText(textStyle),
+                endWidget??SizedBox(),
+
+              ],
+            ),
           )),
     );
   }
