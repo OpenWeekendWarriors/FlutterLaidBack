@@ -55,7 +55,7 @@ class Home extends StatelessWidget {
           padding: EdgeInsets.all(8.0),
           child: Column(
             children: [
-
+              CustomButton(title: 'testerwws',),
                 CustomText('فثسفسفسف' , textAlign: TextAlign.end , startWidget: Icon(Icons.add),endWidget: Icon(Icons.add)),
 
               // CustomDropDown(

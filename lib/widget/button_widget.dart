@@ -68,6 +68,8 @@ class CustomButton extends StatelessWidget {
                   borderRadius: BorderRadius.circular(borderRadios ?? brd_radius_medium)),
               child: title != null
                   ? CustomText(
+                      textAlign: TextAlign.center,
+
                       title,
                       // fontWeight: FontWeight.bold,
                       size: text_size_small,
@@ -100,7 +102,7 @@ class CustomButton extends StatelessWidget {
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(borderRadios ?? brd_radius_medium)),
               child: Ink(
                 decoration: BoxDecoration(
-                    border: Border.all(color: borderColor ?? Colors.transparent , width: borderWidth!),
+                    border: Border.all(color: borderColor ?? Colors.transparent, width: borderWidth!),
                     gradient: LinearGradient(
                       colors: bgColor ??
                           [
@@ -122,6 +124,7 @@ class CustomButton extends StatelessWidget {
                             ? CustomText(
                                 title,
                                 fontWeight: FontWeight.bold,
+                                textAlign: TextAlign.center,
                                 color: textColor ?? Get.theme.textTheme.bodyText1!.color,
                               )
                             : child,
