@@ -65,18 +65,21 @@ class CustomText extends StatelessWidget {
           color: Colors.transparent,
           child: SizedBox(
             width: isMatchParent! ? double.infinity : null,
-            child: Row(
-              mainAxisAlignment: textAlign == TextAlign.center
-                  ? MainAxisAlignment.center
-                  : textAlign == TextAlign.end
-                      ? MainAxisAlignment.end
-                      :  MainAxisAlignment.start,
-              children: [
-               startWidget??const SizedBox(),
-                endWidget != null ? buildText(textStyle) :Expanded(child: buildText(textStyle) ) ,
-                endWidget??const SizedBox(),
-              ],
-            ),
+            child: buildText(textStyle),
+
+
+            // child: Row(
+            //   mainAxisAlignment: textAlign == TextAlign.center
+            //       ? MainAxisAlignment.center
+            //       : textAlign == TextAlign.end
+            //           ? MainAxisAlignment.end
+            //           :  MainAxisAlignment.start,
+            //   children: [
+            //    startWidget??const SizedBox(),
+            //     endWidget != null ? buildText(textStyle) :Expanded(child: buildText(textStyle) ) ,
+            //     endWidget??const SizedBox(),
+            //   ],
+            // ),
           )),
     );
   }
