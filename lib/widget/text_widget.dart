@@ -70,18 +70,18 @@ class CustomText extends StatelessWidget {
                   ? MainAxisAlignment.center
                   : textAlign == TextAlign.end
                       ? MainAxisAlignment.end
-                      : MainAxisAlignment.start,
+                      :  MainAxisAlignment.start,
               children: [
-                if (startWidget != null) ...[startWidget!],
-                buildText(textStyle),
-                if (endWidget != null) ...[endWidget!],
+               startWidget??const SizedBox(),
+                endWidget != null ? buildText(textStyle) :Expanded(child: buildText(textStyle) ) ,
+                endWidget??const SizedBox(),
               ],
             ),
           )),
     );
   }
 
-  buildText(TextStyle textStyle) {
+ Text buildText(TextStyle textStyle) {
     return Text(
       maxLines: maxLines,
       characterCount == null

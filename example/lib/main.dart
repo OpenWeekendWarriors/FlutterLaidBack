@@ -56,7 +56,7 @@ class Home extends StatelessWidget {
           child: Column(
             children: [
               CustomButton(title: 'testerwws',),
-                CustomText('فثسفسفسف' , textAlign: TextAlign.end , startWidget: Icon(Icons.add),endWidget: Icon(Icons.add)),
+                CustomText('فثسsdasdad  asdasdasd sad asd asd asd adasdas das dasd asd as das dsadفشسی' , textAlign: TextAlign.start , startWidget: Icon(Icons.add)),
 
               // CustomDropDown(
               //   hint: 'انتخاب زبان',
