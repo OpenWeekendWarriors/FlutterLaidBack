@@ -66,18 +66,22 @@ class CustomText extends StatelessWidget {
           child: SizedBox(
             width: isMatchParent! ? double.infinity : null,
             child: Row(
+              mainAxisAlignment: textAlign == TextAlign.center
+                  ? MainAxisAlignment.center
+                  : textAlign == TextAlign.end
+                      ? MainAxisAlignment.end
+                      : MainAxisAlignment.start,
               children: [
-                startWidget??SizedBox(),
+                if (startWidget != null) ...[startWidget!],
                 buildText(textStyle),
-                endWidget??SizedBox(),
-
+                if (endWidget != null) ...[endWidget!],
               ],
             ),
           )),
     );
   }
 
-  Text buildText(TextStyle textStyle) {
+  buildText(TextStyle textStyle) {
     return Text(
       maxLines: maxLines,
       characterCount == null

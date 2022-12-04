@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget {
       // theme: Themes().lightTheme,
       theme: ThemeData(useMaterial3: true, colorScheme: lightColorScheme),
       darkTheme: ThemeData(useMaterial3: true, colorScheme: darkColorScheme),
+      locale: Locale( 'fa','IR',),
       themeMode: ThemeMode.system,
       home: Home(),
     );
@@ -55,22 +56,22 @@ class Home extends StatelessWidget {
           child: Column(
             children: [
 
-                CustomText('text' ,startWidget: Icon(Icons.add),endWidget: Icon(Icons.add_a_photo),),
+                CustomText('فثسفسفسف' , textAlign: TextAlign.end , startWidget: Icon(Icons.add),endWidget: Icon(Icons.add)),
 
-              CustomDropDown(
-                hint: 'انتخاب زبان',
-                bgColor: Colors.white,
-                items: const [DropdownItem('فارسی'), DropdownItem('انگلیسی')],
-                borderColor: Colors.white.withAlpha(25),
-                borderRadios: 10,
-                isDense: false,
-                bgColordropdown: Colors.white,
-                arrowIcon: const Icon(Icons.keyboard_arrow_down,color: Colors.green,),
-                isExpand: false,
-                onSelection: (value){
-                  // logic.langSelection = value;
-                },
-              )
+              // CustomDropDown(
+              //   hint: 'انتخاب زبان',
+              //   bgColor: Colors.white,
+              //   items: const [DropdownItem('فارسی'), DropdownItem('انگلیسی')],
+              //   borderColor: Colors.white.withAlpha(25),
+              //   borderRadios: 10,
+              //   isDense: false,
+              //   bgColordropdown: Colors.white,
+              //   arrowIcon: const Icon(Icons.keyboard_arrow_down,color: Colors.green,),
+              //   isExpand: false,
+              //   onSelection: (value){
+              //     // logic.langSelection = value;
+              //   },
+              // )
 
             ],
           ),
