@@ -1,5 +1,6 @@
 import 'package:example/color_schemes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_laid_back/extention/extentions.dart';
 import 'package:flutter_laid_back/widget/button_widget.dart';
 import 'package:flutter_laid_back/widget/custom_app_bar.dart';
 import 'package:flutter_laid_back/widget/custom_checkbox.dart';
@@ -55,8 +56,11 @@ class Home extends StatelessWidget {
           padding: EdgeInsets.all(8.0),
           child: Column(
             children: [
-              CustomButton(title: 'testerwws',),
-                CustomText('فثسsdasdad  asdasdasd sad asd asd asd adasdas das dasd asd as das dsadفشسی' , textAlign: TextAlign.center , startWidget: Icon(Icons.add)),
+              CustomButton(title: 'testerwws',onTap: (){
+
+                print(70.minToHumanReadableTime);
+
+              }),
 
               // CustomDropDown(
               //   hint: 'انتخاب زبان',
