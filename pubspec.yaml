@@ -19,6 +19,8 @@ dependencies:
   rxdart: ^0.27.3
   image_picker:
   image_cropper:
+  persian_datetime_picker: ^2.5.0
+
 
 dev_dependencies:
   flutter_test:
