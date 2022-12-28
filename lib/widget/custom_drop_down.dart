@@ -20,6 +20,7 @@ class CustomDropDown extends StatefulWidget {
   final EdgeInsets? margin;
   final bool? isDense;
 
+
   const CustomDropDown(
       {Key? key,
       this.items,
@@ -126,9 +127,10 @@ class _CustomDropDownState extends State<CustomDropDown> {
 }
 
 class DropdownItem {
-  const DropdownItem(this.name, {this.icon, this.id});
+  const DropdownItem(this.name, {this.icon, this.id,this.stringId});
 
   final String name;
   final int? id;
   final String? icon;
+  final String? stringId;
 }
