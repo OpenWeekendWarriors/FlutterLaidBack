@@ -47,15 +47,17 @@ class CustomTextField extends StatelessWidget {
   final GestureTapCallback? onTap;
   final bool? enableBorder;
   final bool? autoFocus;
+  final bool? enable;
   final TextInputAction? textInputAction;
   final TextDirection? textDirection;
+
   // final ValueChanged<bool>? onFocusChange;
 
   final errorText;
 
-
-   CustomTextField(
-      {Key? key, this.hint='',
+  CustomTextField(
+      {Key? key,
+      this.hint = '',
       this.onChange,
       this.title,
       this.initVal,
@@ -81,7 +83,7 @@ class CustomTextField extends StatelessWidget {
       this.focusBorderColor,
       this.unFocusBorderColor,
       this.focusBorderWidth = 2,
-      this.unFocusBorderWidth=1,
+      this.unFocusBorderWidth = 1,
       this.isBold = false,
       this.isObscureText = false,
       this.maxLine = 1,
@@ -95,33 +97,35 @@ class CustomTextField extends StatelessWidget {
       // this.onFocusChange,
       this.isCounter = false,
       this.autoFocus = false,
+      this.enable = true,
       this.textDirection = TextDirection.rtl,
       this.textInputAction = TextInputAction.done,
-      this.textInputType  = TextInputType.text}) : super(key: key);
+      this.textInputType = TextInputType.text})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    focusBorderColor =focusBorderColor?? Get.theme.primaryColor;
+    focusBorderColor = focusBorderColor ?? Get.theme.primaryColor;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        title!=null ?  title! : const SizedBox(),
+        title != null ? title! : const SizedBox(),
         Container(
           height: height,
           margin: const EdgeInsets.symmetric(vertical: 5),
           child: TextFormField(
             onFieldSubmitted: onFieldSubmitted,
-            focusNode: focusNode??FocusNode(),
+            focusNode: focusNode ?? FocusNode(),
             autofocus: autoFocus!,
             // initialValue:initVal??'' ,
-            textDirection: textDirection  ,
-            textInputAction:textInputAction ,
-              autovalidateMode: AutovalidateMode.onUserInteraction,
-              cursorWidth: 2,
-              cursorHeight: 25,
-              showCursor: true,
-              autocorrect: true,
-            onTap:onTap ,
+            textDirection: textDirection,
+            textInputAction: textInputAction,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
+            cursorWidth: 2,
+            cursorHeight: 25,
+            showCursor: true,
+            autocorrect: true,
+            onTap: onTap,
             // validator: validator ??
             //     (value) {
             //       if (value!.isEmpty) {
@@ -131,10 +135,10 @@ class CustomTextField extends StatelessWidget {
             //     },
 
             validator: validator,
-            enabled: isReadOnly??false ,
+            enabled: enable,
 
-            readOnly:isReadOnly??false ,
-            maxLength:maxLength,
+            readOnly: isReadOnly ?? false,
+            maxLength: maxLength,
             obscureText: isObscureText!,
             cursorColor: Get.theme.primaryColorLight,
             controller: textEditingController,
@@ -150,8 +154,7 @@ class CustomTextField extends StatelessWidget {
             textAlign: textAlign ?? TextAlign.start,
             // maxLines: maxLine ?? 1,
             //   minLines: 1,//Normal textInputField will be displayed
-              maxLines: maxLine,
-
+            maxLines: maxLine,
 
             style: TextStyle(
                 // fontFamily: Utils.getFontFamily(),
@@ -159,45 +162,44 @@ class CustomTextField extends StatelessWidget {
                 fontSize: fontSize + 2,
                 fontWeight: FontWeight.w700),
             decoration: InputDecoration(
-              counterText:"",
+              counterText: "",
               floatingLabelBehavior: FloatingLabelBehavior.auto,
               isDense: true,
-              fillColor: backgroundColor??Colors.white,
-              filled: true, // dont forget this line
-              contentPadding: padding??const EdgeInsets.symmetric(horizontal: 15 , vertical: 14),
+              fillColor: backgroundColor ?? Colors.white,
+              filled: true,
+              // dont forget this line
+              contentPadding: padding ??
+                  const EdgeInsets.symmetric(horizontal: 15, vertical: 14),
               focusedBorder: enableBorder!
                   ? OutlineInputBorder(
                       borderRadius: BorderRadius.circular(borderRadius!),
                       borderSide: BorderSide(
-                        width: focusBorderWidth!,
-                          color: focusBorderColor! ))
+                          width: focusBorderWidth!, color: focusBorderColor!))
                   : InputBorder.none,
               disabledBorder: enableBorder!
                   ? OutlineInputBorder(
                       borderRadius: BorderRadius.circular(borderRadius!),
                       borderSide: BorderSide(
-                          width: focusBorderWidth!,
-                          color: focusBorderColor! ))
+                          width: focusBorderWidth!, color: focusBorderColor!))
                   : InputBorder.none,
               enabledBorder: enableBorder!
                   ? OutlineInputBorder(
                       borderRadius: BorderRadius.circular(borderRadius!),
                       borderSide: BorderSide(
-                          color: unFocusBorderColor??focusBorderColor!))
+                          color: unFocusBorderColor ?? focusBorderColor!))
                   : InputBorder.none,
               border: enableBorder!
                   ? OutlineInputBorder(
                       borderRadius: BorderRadius.circular(borderRadius!),
                       borderSide: BorderSide(
-                          width: unFocusBorderWidth!,
-                          color: focusBorderColor! ))
+                          width: unFocusBorderWidth!, color: focusBorderColor!))
                   : InputBorder.none,
               prefixIcon: prefixIcon,
-              suffixIcon: suffixIcon ,
+              suffixIcon: suffixIcon,
               labelText: lable?.tr,
               alignLabelWithHint: true,
               labelStyle: TextStyle(
-                  color:Get.theme.hintColor,
+                  color: Get.theme.hintColor,
                   fontSize: (fontSize + 2),
                   fontWeight: isBold! ? FontWeight.bold : FontWeight.normal),
               hintText: hint!.tr,
