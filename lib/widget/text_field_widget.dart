@@ -131,7 +131,7 @@ class CustomTextField extends StatelessWidget {
             //     },
 
             validator: validator,
-
+            enabled: isReadOnly??false ,
 
             readOnly:isReadOnly??false ,
             maxLength:maxLength,
