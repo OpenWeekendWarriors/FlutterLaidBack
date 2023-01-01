@@ -158,7 +158,7 @@ class CustomTextField extends StatelessWidget {
 
             style: TextStyle(
                 // fontFamily: Utils.getFontFamily(),
-                color: Get.theme.textTheme.bodyText1!.color,
+                color:textColor?? Get.theme.textTheme.bodyText1!.color,
                 fontSize: fontSize + 2,
                 fontWeight: FontWeight.w700),
             decoration: InputDecoration(
@@ -199,7 +199,7 @@ class CustomTextField extends StatelessWidget {
               labelText: lable?.tr,
               alignLabelWithHint: true,
               labelStyle: TextStyle(
-                  color: Get.theme.hintColor,
+                  color: hintColor ?? Get.theme.hintColor,
                   fontSize: (fontSize + 2),
                   fontWeight: isBold! ? FontWeight.bold : FontWeight.normal),
               hintText: hint!.tr,
