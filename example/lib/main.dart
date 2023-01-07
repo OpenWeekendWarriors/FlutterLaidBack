@@ -1,11 +1,7 @@
 import 'package:example/color_schemes.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_laid_back/extention/extentions.dart';
 import 'package:flutter_laid_back/widget/button_widget.dart';
 import 'package:flutter_laid_back/widget/custom_app_bar.dart';
-import 'package:flutter_laid_back/widget/custom_checkbox.dart';
-import 'package:flutter_laid_back/widget/custom_drop_down.dart';
-import 'package:flutter_laid_back/widget/custom_key_listener.dart';
 import 'package:flutter_laid_back/widget/custom_popup_dialog.dart';
 import 'package:flutter_laid_back/widget/snackbar.dart';
 import 'package:flutter_laid_back/widget/text_field_widget.dart';
@@ -26,7 +22,10 @@ class MyApp extends StatelessWidget {
       // theme: Themes().lightTheme,
       theme: ThemeData(useMaterial3: true, colorScheme: lightColorScheme),
       darkTheme: ThemeData(useMaterial3: true, colorScheme: darkColorScheme),
-      locale: Locale( 'fa','IR',),
+      locale: Locale(
+        'fa',
+        'IR',
+      ),
       themeMode: ThemeMode.system,
       home: Home(),
     );
@@ -52,55 +51,111 @@ class Home extends StatelessWidget {
             children: [],
           ),
         ),
-        body: Padding(
-          padding: EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              CustomButton(title: 'testerwws',onTap: (){
+        body: Container(
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: Image.network(
+            'https://foyr.com/learn/wp-content/uploads/2021/08/design-your-dream-home.jpg',
+            fit: BoxFit.cover,
+          ).image)),
+          child: Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                CustomButton(
+                    title: 'dialog',
+                    onTap: () async {
+                      // showDialog(context: context, builder: builder)
 
-                print(70.minToHumanReadableTime);
+                      // showDialog(
+                      //     context: context,
+                      //     builder: (context) => const BlurredDialog(
+                      //       height: 100,
+                      //       width: 200,
+                      //       // child can be any widget.
+                      //       child: Center(child: Text("Dialog")),
+                      //     ));
 
-              }),
+                      showPopupDialog(context, title: 'شسیسیبسیب', positiveButton: () {
+                        print('sddsfsdf');
+                      },
+                          message: 'یسیب سیب سیبسیب سیب سیب سیبسی بسیب سیبسی',
+                          positiveText: 'تایید',
+                          negativeText: 'یسسی',
+                          isBlur: false);
+                    }),
 
-              // CustomDropDown(
-              //   hint: 'انتخاب زبان',
-              //   bgColor: Colors.white,
-              //   items: const [DropdownItem('فارسی'), DropdownItem('انگلیسی')],
-              //   borderColor: Colors.white.withAlpha(25),
-              //   borderRadios: 10,
-              //   isDense: false,
-              //   bgColordropdown: Colors.white,
-              //   arrowIcon: const Icon(Icons.keyboard_arrow_down,color: Colors.green,),
-              //   isExpand: false,
-              //   onSelection: (value){
-              //     // logic.langSelection = value;
-              //   },
-              // )
+                CustomTextField(
+                  title: const CustomText(
+                    'user_name',
+                    fontWeight: FontWeight.bold,
+                  ),
+                  textAlign: TextAlign.left,
+                  textInputAction: TextInputAction.next,
+                  textInputType: TextInputType.name,
+                  textColor: Colors.black,
+                  prefixIcon: const Icon(Icons.person_outline_outlined),
+                  borderRadius: 10,
+                  inputFormatters: [
+                    // FilteringTextInputFormatter.allow(
+                    //   RegExp("[A-Za-z0-9]"),
+                    // ),
+                  ],
+                  validator: (value) {
+                    // if (value == null || value.isEmpty) {
+                    //   // return please_enter_username.tr;
+                    // }
+                    // if ((value.length < 6 || value.length > 45) &&
+                    //     (!usernameValidatorLength
+                    //         .hasMatch(value))) {
+                    //   return username_is_not_correct.tr;
+                    // }
+                    //
+                    // if (logic.isNumeric(value[0])) {
+                    //   return username_is_not_correct.tr;
+                    // }
+                    // return null;
+                  },
+                ),
 
-            ],
+                // CustomDropDown(
+                //   hint: 'انتخاب زبان',
+                //   bgColor: Colors.white,
+                //   items: const [DropdownItem('فارسی'), DropdownItem('انگلیسی')],
+                //   borderColor: Colors.white.withAlpha(25),
+                //   borderRadios: 10,
+                //   isDense: false,
+                //   bgColordropdown: Colors.white,
+                //   arrowIcon: const Icon(Icons.keyboard_arrow_down,color: Colors.green,),
+                //   isExpand: false,
+                //   onSelection: (value){
+                //     // logic.langSelection = value;
+                //   },
+                // )
+              ],
+            ),
           ),
         ),
         floatingActionButton: FloatingActionButton(
-            onPressed: () =>
-            {
-              showSnackBar(text: 'asdkfjaskdj'),
-              showPopupDialog(context , title: 'َُِسیسیشی' , message: 'یسبسیبسیبسبسیبسیبسیب'),
+            onPressed: () => {
+                  showSnackBar(text: 'asdkfjaskdj'),
+                  showPopupDialog(context, title: 'َُِسیسیشی', message: 'یسبسیبسیبسبسیبسیبسیب'),
 
-              // ScaffoldMessenger.of(context).showMaterialBanner(
-              //   MaterialBanner(
-              //     elevation: 25,
-              //     content: const Text('Hello, I am a Material Banner'),
-              //     leading: const Icon(Icons.info),
-              //     backgroundColor: Colors.green,
-              //     actions: [
-              //       TextButton(
-              //         child: const Text('Dismiss'),
-              //         onPressed: () => ScaffoldMessenger.of(context).hideCurrentMaterialBanner(),
-              //       ),
-              //     ],
-              //   ),
-              // ),
-            },
+                  // ScaffoldMessenger.of(context).showMaterialBanner(
+                  //   MaterialBanner(
+                  //     elevation: 25,
+                  //     content: const Text('Hello, I am a Material Banner'),
+                  //     leading: const Icon(Icons.info),
+                  //     backgroundColor: Colors.green,
+                  //     actions: [
+                  //       TextButton(
+                  //         child: const Text('Dismiss'),
+                  //         onPressed: () => ScaffoldMessenger.of(context).hideCurrentMaterialBanner(),
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
+                },
             tooltip: 'Increment'));
   }
 }
