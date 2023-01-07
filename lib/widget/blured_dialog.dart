@@ -24,7 +24,7 @@ class BlurredDialog extends StatelessWidget {
         insetPadding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
         clipBehavior: Clip.antiAlias,
         backgroundColor: Colors.transparent,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         elevation: 0,
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),

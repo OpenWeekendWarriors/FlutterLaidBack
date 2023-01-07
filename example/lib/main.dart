@@ -76,13 +76,13 @@ class Home extends StatelessWidget {
                       //       child: Center(child: Text("Dialog")),
                       //     ));
 
-                      showPopupDialog(context, title: 'شسیسیبسیب', positiveButton: () {
+                      showPopupDialog(context, title: 'دستگاه شماره 1', positiveButton: () {
                         print('sddsfsdf');
                       },
-                          message: 'یسیب سیب سیبسیب سیب سیب سیبسی بسیب سیبسی',
+                          message: 'از حذف دستگاه اطمینان دارید؟',
                           positiveText: 'تایید',
                           negativeText: 'یسسی',
-                          isBlur: false);
+                          isBlur: true);
                     }),
 
                 CustomTextField(
