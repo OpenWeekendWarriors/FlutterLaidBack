@@ -90,7 +90,6 @@ class Home extends StatelessWidget {
                     'user_name',
                     fontWeight: FontWeight.bold,
                   ),
-                  textAlign: TextAlign.left,
                   textInputAction: TextInputAction.next,
                   textInputType: TextInputType.name,
                   textColor: Colors.black,
