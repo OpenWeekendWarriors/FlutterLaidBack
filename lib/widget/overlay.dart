@@ -9,12 +9,17 @@ import 'package:get/get.dart';
 
 class LoadingOverlay {
   BuildContext? _context;
+  bool isShow= false;
 
   void hide() {
-    Navigator.of(_context!).pop();
+        if(isShow){
+          isShow = false;
+          Navigator.of(_context!).pop();
+        }
   }
 
   void show({bool isUpload = false}) {
+    isShow = true;
     showDialog(
         context: _context!,
         barrierDismissible: false,
