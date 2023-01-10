@@ -109,6 +109,7 @@ class CustomTextField extends StatelessWidget {
     if (textEditingController!=null&& textEditingController!.text.isNotEmpty) {
       final dir = getDirection(textEditingController!.text);
       textDir.value = dir;
+      textEditingController?.selection = TextSelection.collapsed(offset: textEditingController!.text.length);
     }
     focusBorderColor = focusBorderColor ?? Get.theme.primaryColor;
     return Column(
@@ -123,7 +124,7 @@ class CustomTextField extends StatelessWidget {
             builder: (context, value, child) {
               return TextFormField(
                 onFieldSubmitted: onFieldSubmitted,
-                focusNode: focusNode ?? FocusNode(),
+                focusNode: focusNode,
                 autofocus: autoFocus!,
                 // initialValue:initVal??'' ,
                 // textDirection: textDirection,
@@ -134,7 +135,13 @@ class CustomTextField extends StatelessWidget {
                 cursorHeight: 25,
                 showCursor: true,
                 autocorrect: true,
-                onTap: onTap,
+                onTap: (){
+                  // if (textEditingController!=null&& textEditingController!.text.isNotEmpty) {
+                  //   textEditingController?.selection = TextSelection.collapsed(offset: textEditingController!.text.length);
+                  // }
+
+
+                },
                 // validator: validator ??
                 //     (value) {
                 //       if (value!.isEmpty) {

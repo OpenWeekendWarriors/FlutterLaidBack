@@ -37,7 +37,7 @@ class Home extends StatelessWidget {
 
   RxBool isCh = false.obs;
 
-  var nameController = TextEditingController(text: 'یمبتنایمنب سیبت سیبنمسیتب');
+  var nameController = TextEditingController(text: 'شسیبسظیبس بسیل یبلیب');
 
   Home({Key? key}) : super(key: key);
 
@@ -92,7 +92,7 @@ class Home extends StatelessWidget {
                     'user_name',
                     fontWeight: FontWeight.bold,
                   ),
-                  textInputAction: TextInputAction.next,
+                  autoFocus: true,
                   textEditingController: nameController,
                   textInputType: TextInputType.name,
                   textColor: Colors.black,
