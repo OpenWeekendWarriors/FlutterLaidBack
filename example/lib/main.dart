@@ -37,6 +37,8 @@ class Home extends StatelessWidget {
 
   RxBool isCh = false.obs;
 
+  var nameController = TextEditingController(text: 'یمبتنایمنب سیبت سیبنمسیتب');
+
   Home({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
@@ -91,6 +93,7 @@ class Home extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                   textInputAction: TextInputAction.next,
+                  textEditingController: nameController,
                   textInputType: TextInputType.name,
                   textColor: Colors.black,
                   prefixIcon: const Icon(Icons.person_outline_outlined),

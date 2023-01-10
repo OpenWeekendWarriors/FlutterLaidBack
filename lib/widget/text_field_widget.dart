@@ -4,11 +4,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_laid_back/conf/const.dart';
-import 'package:flutter_laid_back/widget/text_widget.dart';
 import 'package:get/get.dart';
 
 class CustomTextField extends StatelessWidget {
-  ValueNotifier<TextDirection> textDir = ValueNotifier(TextDirection.ltr);
+  ValueNotifier<TextDirection> textDir = ValueNotifier(TextDirection.rtl);
   final String? hint;
   final String? lable;
   final Widget? title;
@@ -50,6 +49,7 @@ class CustomTextField extends StatelessWidget {
   final bool? autoFocus;
   final bool? enable;
   final TextInputAction? textInputAction;
+
   // final TextDirection? textDirection;
 
   // final ValueChanged<bool>? onFocusChange;
@@ -106,6 +106,10 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (textEditingController!=null&& textEditingController!.text.isNotEmpty) {
+      final dir = getDirection(textEditingController!.text);
+      textDir.value = dir;
+    }
     focusBorderColor = focusBorderColor ?? Get.theme.primaryColor;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -116,8 +120,7 @@ class CustomTextField extends StatelessWidget {
           margin: const EdgeInsets.symmetric(vertical: 5),
           child: ValueListenableBuilder<TextDirection>(
             valueListenable: textDir,
-            builder:(context, value, child){
-
+            builder: (context, value, child) {
               return TextFormField(
                 onFieldSubmitted: onFieldSubmitted,
                 focusNode: focusNode ?? FocusNode(),
@@ -156,7 +159,7 @@ class CustomTextField extends StatelessWidget {
                 // LengthLimitingTextInputFormatter(2),
                 //   ],
                 textDirection: value,
-                onChanged: (input){
+                onChanged: (input) {
                   if (input.trim().length < 2) {
                     final dir = getDirection(input);
                     if (dir != value) textDir.value = dir;
@@ -170,8 +173,8 @@ class CustomTextField extends StatelessWidget {
                 maxLines: maxLine,
 
                 style: TextStyle(
-                  // fontFamily: Utils.getFontFamily(),
-                    color:textColor?? Get.theme.textTheme.bodyText1!.color,
+                    // fontFamily: Utils.getFontFamily(),
+                    color: textColor ?? Get.theme.textTheme.bodyText1!.color,
                     fontSize: fontSize + 2,
                     fontWeight: FontWeight.w700),
                 decoration: InputDecoration(
@@ -181,31 +184,26 @@ class CustomTextField extends StatelessWidget {
                   fillColor: backgroundColor ?? Colors.white,
                   filled: true,
                   // dont forget this line
-                  contentPadding: padding ??
-                      const EdgeInsets.symmetric(horizontal: 15, vertical: 14),
+                  contentPadding: padding ?? const EdgeInsets.symmetric(horizontal: 15, vertical: 14),
                   focusedBorder: enableBorder!
                       ? OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(borderRadius!),
-                      borderSide: BorderSide(
-                          width: focusBorderWidth!, color: focusBorderColor!))
+                          borderRadius: BorderRadius.circular(borderRadius!),
+                          borderSide: BorderSide(width: focusBorderWidth!, color: focusBorderColor!))
                       : InputBorder.none,
                   disabledBorder: enableBorder!
                       ? OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(borderRadius!),
-                      borderSide: BorderSide(
-                          width: focusBorderWidth!, color: focusBorderColor!))
+                          borderRadius: BorderRadius.circular(borderRadius!),
+                          borderSide: BorderSide(width: focusBorderWidth!, color: focusBorderColor!))
                       : InputBorder.none,
                   enabledBorder: enableBorder!
                       ? OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(borderRadius!),
-                      borderSide: BorderSide(
-                          color: unFocusBorderColor ?? focusBorderColor!))
+                          borderRadius: BorderRadius.circular(borderRadius!),
+                          borderSide: BorderSide(color: unFocusBorderColor ?? focusBorderColor!))
                       : InputBorder.none,
                   border: enableBorder!
                       ? OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(borderRadius!),
-                      borderSide: BorderSide(
-                          width: unFocusBorderWidth!, color: focusBorderColor!))
+                          borderRadius: BorderRadius.circular(borderRadius!),
+                          borderSide: BorderSide(width: unFocusBorderWidth!, color: focusBorderColor!))
                       : InputBorder.none,
                   prefixIcon: prefixIcon,
                   suffixIcon: suffixIcon,
@@ -222,7 +220,6 @@ class CustomTextField extends StatelessWidget {
                       fontWeight: isBold! ? FontWeight.bold : FontWeight.normal),
                 ),
               );
-
             },
           ),
         ),
