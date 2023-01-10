@@ -135,13 +135,15 @@ class CustomTextField extends StatelessWidget {
                 cursorHeight: 25,
                 showCursor: true,
                 autocorrect: true,
-                onTap: (){
+                onTap: onTap,
+
+                // onTap: (){
                   // if (textEditingController!=null&& textEditingController!.text.isNotEmpty) {
                   //   textEditingController?.selection = TextSelection.collapsed(offset: textEditingController!.text.length);
                   // }
 
 
-                },
+                // },
                 // validator: validator ??
                 //     (value) {
                 //       if (value!.isEmpty) {
