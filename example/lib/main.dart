@@ -84,7 +84,7 @@ class Home extends StatelessWidget {
                           message: 'از حذف دستگاه اطمینان دارید؟',
                           positiveText: 'تایید',
                           negativeText: 'یسسی',
-                          isBlur: true);
+                          isBlur: false);
                     }),
 
                 CustomTextField(
