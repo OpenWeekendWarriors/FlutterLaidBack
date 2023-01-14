@@ -81,10 +81,11 @@ class Home extends StatelessWidget {
                       showPopupDialog(context, title: 'دستگاه شماره 1', positiveButton: () {
                         print('sddsfsdf');
                       },
-                          message: 'از حذف دستگاه اطمینان دارید؟',
+
+                          message: 'از حذف دستگاه اطمینان دارید؟از حذف دستگاه اطمینان دارید؟از حذف دستگاه اطمینان دارید؟از حذف دستگاه اطمینان دارید؟',
                           positiveText: 'تایید',
                           negativeText: 'یسسی',
-                          isBlur: false);
+                          isBlur: true);
                     }),
 
                 CustomTextField(

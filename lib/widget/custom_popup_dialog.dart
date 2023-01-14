@@ -29,7 +29,7 @@ Future<bool> showPopupDialog(context,
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.all(15),
+                        padding: const EdgeInsets.all(8),
                         child: Column(
                           children: [
                             CustomText(
@@ -40,7 +40,7 @@ Future<bool> showPopupDialog(context,
                               fontWeight: FontWeight.w700,
                             ),
                             const SizedBox(
-                              height: 5,
+                              height: 10,
                             ),
                             CustomText(
                               message ?? '',
@@ -115,27 +115,30 @@ Future<bool> showPopupDialog(context,
             : WillPopScope(
                 onWillPop: () async => false,
                 child: AlertDialog(
-                    contentPadding: const EdgeInsets.only(top: 15),
+                    contentPadding: const EdgeInsets.only(top: 5),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(radius))),
                     content: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Column(
-                          children: [
-                            CustomText(
-                              title ?? '',
-                              size: 16,
-                              color: const Color(0xFF333333),
-                              textAlign: TextAlign.center,
-                              fontWeight: FontWeight.w700,
-                            ),
-                            CustomText(
-                              message ?? '',
-                              size: 14,
-                              fontWeight: FontWeight.w700,
-                              textAlign: TextAlign.center,
-                            ),
-                          ],
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            children: [
+                              CustomText(
+                                title ?? '',
+                                size: 16,
+                                color: const Color(0xFF333333),
+                                textAlign: TextAlign.center,
+                                fontWeight: FontWeight.w700,
+                              ),
+                              CustomText(
+                                message ?? '',
+                                size: 14,
+                                fontWeight: FontWeight.w700,
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          ),
                         ),
                         const SizedBox(
                           height: 15,
