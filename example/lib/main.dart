@@ -65,7 +65,7 @@ class Home extends StatelessWidget {
             child: Column(
               children: [
                 CustomButton(
-                    title: 'dialog',
+                    title: 'dialog blur',
                     onTap: () async {
                       // showDialog(context: context, builder: builder)
 
@@ -86,6 +86,29 @@ class Home extends StatelessWidget {
                           positiveText: 'تایید',
                           negativeText: 'یسسی',
                           isBlur: true);
+                    }),
+                CustomButton(
+                    title: 'dialog',
+                    onTap: () async {
+                      // showDialog(context: context, builder: builder)
+
+                      // showDialog(
+                      //     context: context,
+                      //     builder: (context) => const BlurredDialog(
+                      //       height: 100,
+                      //       width: 200,
+                      //       // child can be any widget.
+                      //       child: Center(child: Text("Dialog")),
+                      //     ));
+
+                      showPopupDialog(context, title: 'دستگاه شماره 1', positiveButton: () {
+                        print('sddsfsdf');
+                      },
+
+                          message: 'از حذف دستگاه اطمینان دارید؟از حذف دستگاه اطمینان دارید؟از حذف دستگاه اطمینان دارید؟از حذف دستگاه اطمینان دارید؟',
+                          positiveText: 'تایید',
+                          negativeText: 'یسسی',
+                          isBlur: false);
                     }),
 
                 CustomTextField(

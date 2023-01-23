@@ -121,7 +121,7 @@ Future<bool> showPopupDialog(context,
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.fromLTRB(7, 5, 7, 0),
                           child: Column(
                             children: [
                               CustomText(
@@ -130,6 +130,9 @@ Future<bool> showPopupDialog(context,
                                 color: const Color(0xFF333333),
                                 textAlign: TextAlign.center,
                                 fontWeight: FontWeight.w700,
+                              ),
+                              const SizedBox(
+                                height: 10,
                               ),
                               CustomText(
                                 message ?? '',
