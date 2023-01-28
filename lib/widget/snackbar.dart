@@ -17,7 +17,7 @@ void showSnackBar(
     {@required String? text,
     String? textConfirm,
     int? duration,
-    SnackPosition snackPosition = SnackPosition.BOTTOM,
+    SnackPosition snackPosition = SnackPosition.TOP,
     VoidCallback? onConfirm,
     ShowType showType = ShowType.SNACKBAR,
     VoidCallback? onTap,
