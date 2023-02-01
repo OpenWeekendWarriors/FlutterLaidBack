@@ -17,7 +17,7 @@ void showSnackBar(
     {@required String? text,
     String? textConfirm,
     int? duration,
-    SnackPosition snackPosition = SnackPosition.BOTTOM,
+    SnackPosition snackPosition = SnackPosition.TOP,
     VoidCallback? onConfirm,
     ShowType showType = ShowType.SNACKBAR,
     VoidCallback? onTap,
@@ -53,29 +53,26 @@ void showSnackBar(
     case ShowType.SNACKBAR:
       Get.snackbar("Skills Message",
           text!.substring(0, text.length > 200 ? 200 : text.length),
-          snackPosition: snackPosition,
+          snackPosition: snackPosition,barBlur: 0.8,
           duration: Duration(seconds: duration ?? 4),
           animationDuration: const Duration(milliseconds: 700),
           // maxWidth: 100,
           titleText: Center(
-            child: Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: CustomText(
-                text.substring(0, text.length > 200 ? 200 : text.length),
-                color: Colors.white,
-                size: 20,
-                fontWeight: FontWeight.bold,
-                textAlign: TextAlign.center,
-              ),
+            child: CustomText(
+              text.substring(0, text.length > 200 ? 200 : text.length),
+              color: Colors.white,
+              size: 20,
+              fontWeight: FontWeight.bold,
+              textAlign: TextAlign.center,
             ),
           ),
           // snackStyle: SnackStyle.GROUNDED,
           messageText: const SizedBox(),
           colorText: Colors.black,
-          margin: const EdgeInsets.all(25),
+          margin: const EdgeInsets.all(0),
           padding: const EdgeInsets.all(8.0),
           boxShadows: [const BoxShadow(color: Colors.black45, blurRadius: 4)],
-          borderRadius: 7,
+          borderRadius: 1,
           // borderColor: snackBarType == SnackBarType.Error
           //     ? Colors.black
           //     : snackBarType == SnackBarType.Report ? Colors.black : Colors.black,

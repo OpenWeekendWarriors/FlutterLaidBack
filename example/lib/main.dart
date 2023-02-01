@@ -110,6 +110,12 @@ class Home extends StatelessWidget {
                           negativeText: 'یسسی',
                           isBlur: false);
                     }),
+                CustomButton(
+                    title: 'SNACKBAR',
+                    onTap: () async {
+                      showSnackBar(text: 'asdsafdsafsadf ');
+
+                    }),
 
                 CustomTextField(
                   title: const CustomText(
