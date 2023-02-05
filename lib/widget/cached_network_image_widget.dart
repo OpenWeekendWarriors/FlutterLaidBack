@@ -63,9 +63,9 @@ class BuildCachedImageWidget extends StatelessWidget {
                         fadeInDuration: const Duration(milliseconds: 100),
                         imageUrl:
                             imageUrl == 'test' ? 'https://unsplash.com/photos/QimEwRMvK6w/download?force=true&w=640' : imageUrl,
-                        errorWidget: (context, url, error) {
-                          return const Icon(Icons.error_outlined);
-                        },
+                        // errorWidget: (context, url, error) {
+                        //   return const Icon(Icons.error_outlined);
+                        // },
                         placeholder: (context, url) => customLoadingWidget(radios: width))
                     : SizedBox(
                         height: height,

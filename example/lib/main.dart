@@ -1,6 +1,8 @@
 import 'package:example/color_schemes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_laid_back/conf/const.dart';
 import 'package:flutter_laid_back/widget/button_widget.dart';
+import 'package:flutter_laid_back/widget/cached_network_image_widget.dart';
 import 'package:flutter_laid_back/widget/custom_app_bar.dart';
 import 'package:flutter_laid_back/widget/custom_popup_dialog.dart';
 import 'package:flutter_laid_back/widget/snackbar.dart';
@@ -53,120 +55,13 @@ class Home extends StatelessWidget {
             children: [],
           ),
         ),
-        body: Container(
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: Image.network(
-            'https://foyr.com/learn/wp-content/uploads/2021/08/design-your-dream-home.jpg',
-            fit: BoxFit.cover,
-          ).image)),
-          child: Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                CustomButton(
-                    title: 'dialog blur',
-                    onTap: () async {
-                      // showDialog(context: context, builder: builder)
+        body: const BuildCachedImageWidget(
+          imageUrl:
+          'https://sfl2.smart-boom.com:8571/files/35645bfd-bcb5-4b95-aa0e-ff61dfb07f0c/app.png',
+          borderColor: Colors.transparent,
+          height: double.infinity,
+          width: double.maxFinite,
 
-                      // showDialog(
-                      //     context: context,
-                      //     builder: (context) => const BlurredDialog(
-                      //       height: 100,
-                      //       width: 200,
-                      //       // child can be any widget.
-                      //       child: Center(child: Text("Dialog")),
-                      //     ));
-
-                      showPopupDialog(context, title: 'دستگاه شماره 1', positiveButton: () {
-                        print('sddsfsdf');
-                      },
-
-                          message: 'از حذف دستگاه اطمینان دارید؟از حذف دستگاه اطمینان دارید؟از حذف دستگاه اطمینان دارید؟از حذف دستگاه اطمینان دارید؟',
-                          positiveText: 'تایید',
-                          negativeText: 'یسسی',
-                          isBlur: true);
-                    }),
-                CustomButton(
-                    title: 'dialog',
-                    onTap: () async {
-                      // showDialog(context: context, builder: builder)
-
-                      // showDialog(
-                      //     context: context,
-                      //     builder: (context) => const BlurredDialog(
-                      //       height: 100,
-                      //       width: 200,
-                      //       // child can be any widget.
-                      //       child: Center(child: Text("Dialog")),
-                      //     ));
-
-                      showPopupDialog(context, title: 'دستگاه شماره 1', positiveButton: () {
-                        print('sddsfsdf');
-                      },
-
-                          message: 'از حذف دستگاه اطمینان دارید؟از حذف دستگاه اطمینان دارید؟از حذف دستگاه اطمینان دارید؟از حذف دستگاه اطمینان دارید؟',
-                          positiveText: 'تایید',
-                          negativeText: 'یسسی',
-                          isBlur: false);
-                    }),
-                CustomButton(
-                    title: 'SNACKBAR',
-                    onTap: () async {
-                      showSnackBar(text: 'asdsafdsafsadf ');
-
-                    }),
-
-                CustomTextField(
-                  title: const CustomText(
-                    'user_name',
-                    fontWeight: FontWeight.bold,
-                  ),
-                  autoFocus: true,
-                  textEditingController: nameController,
-                  textInputType: TextInputType.name,
-                  textColor: Colors.black,
-                  prefixIcon: const Icon(Icons.person_outline_outlined),
-                  borderRadius: 10,
-                  inputFormatters: [
-                    // FilteringTextInputFormatter.allow(
-                    //   RegExp("[A-Za-z0-9]"),
-                    // ),
-                  ],
-                  validator: (value) {
-                    // if (value == null || value.isEmpty) {
-                    //   // return please_enter_username.tr;
-                    // }
-                    // if ((value.length < 6 || value.length > 45) &&
-                    //     (!usernameValidatorLength
-                    //         .hasMatch(value))) {
-                    //   return username_is_not_correct.tr;
-                    // }
-                    //
-                    // if (logic.isNumeric(value[0])) {
-                    //   return username_is_not_correct.tr;
-                    // }
-                    // return null;
-                  },
-                ),
-
-                // CustomDropDown(
-                //   hint: 'انتخاب زبان',
-                //   bgColor: Colors.white,
-                //   items: const [DropdownItem('فارسی'), DropdownItem('انگلیسی')],
-                //   borderColor: Colors.white.withAlpha(25),
-                //   borderRadios: 10,
-                //   isDense: false,
-                //   bgColordropdown: Colors.white,
-                //   arrowIcon: const Icon(Icons.keyboard_arrow_down,color: Colors.green,),
-                //   isExpand: false,
-                //   onSelection: (value){
-                //     // logic.langSelection = value;
-                //   },
-                // )
-              ],
-            ),
-          ),
         ),
         floatingActionButton: FloatingActionButton(
             onPressed: () => {
