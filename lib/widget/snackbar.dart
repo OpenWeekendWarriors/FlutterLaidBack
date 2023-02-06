@@ -54,7 +54,7 @@ void showSnackBar(
       Get.snackbar("Skills Message",
           text!.substring(0, text.length > 200 ? 200 : text.length),
           snackPosition: snackPosition,barBlur: 0.8,
-          duration: Duration(seconds: duration ?? 4),
+          duration: Duration(seconds: duration ?? 2),
           animationDuration: const Duration(milliseconds: 700),
           // maxWidth: 100,
           titleText: Center(

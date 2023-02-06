@@ -58,14 +58,15 @@ class BuildCachedImageWidget extends StatelessWidget {
                     ? CachedNetworkImage(
                         width: width ?? 30.0,
                         height: height ?? 30.0,
+
                         fit: BoxFit.cover,
                         fadeInCurve: Curves.easeIn,
                         fadeInDuration: const Duration(milliseconds: 100),
                         imageUrl:
                             imageUrl == 'test' ? 'https://unsplash.com/photos/QimEwRMvK6w/download?force=true&w=640' : imageUrl,
-                        // errorWidget: (context, url, error) {
-                        //   return const Icon(Icons.error_outlined);
-                        // },
+                        errorWidget: (context, url, error) {
+                          return const Icon(Icons.broken_image_rounded);
+                        },
                         placeholder: (context, url) => customLoadingWidget(radios: width))
                     : SizedBox(
                         height: height,
