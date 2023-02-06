@@ -5,6 +5,7 @@ import 'package:flutter_laid_back/widget/button_widget.dart';
 import 'package:flutter_laid_back/widget/cached_network_image_widget.dart';
 import 'package:flutter_laid_back/widget/custom_app_bar.dart';
 import 'package:flutter_laid_back/widget/custom_popup_dialog.dart';
+import 'package:flutter_laid_back/widget/overlay.dart';
 import 'package:flutter_laid_back/widget/snackbar.dart';
 import 'package:flutter_laid_back/widget/text_field_widget.dart';
 import 'package:flutter_laid_back/widget/text_widget.dart';
@@ -46,6 +47,8 @@ class Home extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    var overlay = LoadingOverlay.of(Get.context);
+
     return Scaffold(
         appBar: CustomAppbar(
           showLeading: false,
@@ -63,26 +66,57 @@ class Home extends StatelessWidget {
           width: double.maxFinite,
 
         ),
-        floatingActionButton: FloatingActionButton(
-            onPressed: () => {
-                  showSnackBar(text: 'asdkfjaskdj'),
-                  showPopupDialog(context, title: 'َُِسیسیشی', message: 'یسبسیبسیبسبسیبسیبسیب'),
+        floatingActionButton: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Row(
+            children: [
+              FloatingActionButton(
+              backgroundColor: Colors.red,
+                  onPressed: () => {
+                          overlay.show(timeoutInSec: 2),
+                        // showSnackBar(text: 'asdkfjaskdj'),
+                        // showPopupDialog(context, title: 'َُِسیسیشی', message: 'یسبسیبسیبسبسیبسیبسیب'),
 
-                  // ScaffoldMessenger.of(context).showMaterialBanner(
-                  //   MaterialBanner(
-                  //     elevation: 25,
-                  //     content: const Text('Hello, I am a Material Banner'),
-                  //     leading: const Icon(Icons.info),
-                  //     backgroundColor: Colors.green,
-                  //     actions: [
-                  //       TextButton(
-                  //         child: const Text('Dismiss'),
-                  //         onPressed: () => ScaffoldMessenger.of(context).hideCurrentMaterialBanner(),
-                  //       ),
-                  //     ],
-                  //   ),
-                  // ),
-                },
-            tooltip: 'Increment'));
+                        // ScaffoldMessenger.of(context).showMaterialBanner(
+                        //   MaterialBanner(
+                        //     elevation: 25,
+                        //     content: const Text('Hello, I am a Material Banner'),
+                        //     leading: const Icon(Icons.info),
+                        //     backgroundColor: Colors.green,
+                        //     actions: [
+                        //       TextButton(
+                        //         child: const Text('Dismiss'),
+                        //         onPressed: () => ScaffoldMessenger.of(context).hideCurrentMaterialBanner(),
+                        //       ),
+                        //     ],
+                        //   ),
+                        // ),
+                      },
+                  tooltip: 'Increment'),
+              FloatingActionButton(backgroundColor: Colors.blue,
+                  onPressed: () => {
+                          overlay.hide(),
+                        // showSnackBar(text: 'asdkfjaskdj'),
+                        // showPopupDialog(context, title: 'َُِسیسیشی', message: 'یسبسیبسیبسبسیبسیبسیب'),
+
+                        // ScaffoldMessenger.of(context).showMaterialBanner(
+                        //   MaterialBanner(
+                        //     elevation: 25,
+                        //     content: const Text('Hello, I am a Material Banner'),
+                        //     leading: const Icon(Icons.info),
+                        //     backgroundColor: Colors.green,
+                        //     actions: [
+                        //       TextButton(
+                        //         child: const Text('Dismiss'),
+                        //         onPressed: () => ScaffoldMessenger.of(context).hideCurrentMaterialBanner(),
+                        //       ),
+                        //     ],
+                        //   ),
+                        // ),
+                      },
+                  tooltip: 'Increment'),
+            ],
+          ),
+        ));
   }
 }

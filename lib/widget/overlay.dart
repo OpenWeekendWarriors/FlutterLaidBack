@@ -9,17 +9,38 @@ import 'package:get/get.dart';
 
 class LoadingOverlay {
   BuildContext? _context;
-  bool isShow= false;
+  bool isShow = false;
+  Timer? _timer;
+  int DEFAULT_TIME_OUT_IN_SECONDS = 30;
+  int _countDownTimerInSec = 30;
 
-  void hide() {
-        if(isShow){
-          isShow = false;
-          Navigator.of(_context!).pop();
+  void startTimer() {
+    _countDownTimerInSec = DEFAULT_TIME_OUT_IN_SECONDS;
+    const oneSec = Duration(seconds: 1);
+    _timer = Timer.periodic(
+      oneSec,
+          (Timer timer) {
+        if (_countDownTimerInSec == 0) {
+          hide();
+        } else {
+          _countDownTimerInSec--;
         }
+      },
+    );
+  }
+  void hide() {
+    if (isShow) {
+      isShow = false;
+      _timer!.cancel();
+      _countDownTimerInSec = DEFAULT_TIME_OUT_IN_SECONDS;
+      Navigator.of(_context!).pop();
+    }
   }
 
-  void show({bool isUpload = false}) {
+  void show({bool isUpload = false, int timeoutInSec=30}) {
     isShow = true;
+    DEFAULT_TIME_OUT_IN_SECONDS = timeoutInSec;
+    startTimer();
     showDialog(
         context: _context!,
         barrierDismissible: false,
@@ -44,39 +65,44 @@ class LoadingOverlay {
 
 class _FullScreenLoader extends StatelessWidget {
   bool isUpload;
+
   _FullScreenLoader({this.isUpload = false});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        decoration: BoxDecoration(),
-        child: Center(
-          child: !isUpload
-              ? const SpinKitCubeGrid(
-                  color: Colors.white,
-                  size: 30.0,
-                )
-              : Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const CustomText(
-                      "در حال ارسال تصاویر...",
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                      size: 20.0,
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(Get.theme.primaryColor),
-                    ),
-                  ],
-                ),
-        ));
+    return WillPopScope(
+      onWillPop: () {
+        return Future.value(false);
+      },
+      child: Container(
+          decoration: BoxDecoration(),
+          child: Center(
+            child: !isUpload
+                ? const SpinKitCubeGrid(
+                    color: Colors.white,
+                    size: 30.0,
+                  )
+                : Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const CustomText(
+                        "در حال ارسال تصاویر...",
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                        size: 20.0,
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      CircularProgressIndicator(
+                        valueColor: AlwaysStoppedAnimation<Color>(Get.theme.primaryColor),
+                      ),
+                    ],
+                  ),
+          )),
+    );
   }
 }
-
 
 class TutorialOverlay extends ModalRoute<void> {
   @override
@@ -137,9 +163,7 @@ class TutorialOverlay extends ModalRoute<void> {
       ),
     );
   }
-
 }
-
 
 Color overlayColor(BuildContext context, double elevation) {
   final ThemeData theme = Theme.of(context);
