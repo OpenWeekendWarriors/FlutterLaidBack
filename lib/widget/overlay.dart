@@ -11,8 +11,8 @@ class LoadingOverlay {
   BuildContext? _context;
   bool isShow = false;
   Timer? _timer;
-  int DEFAULT_TIME_OUT_IN_SECONDS = 30;
-  int _countDownTimerInSec = 30;
+  int DEFAULT_TIME_OUT_IN_SECONDS = 20;
+  int _countDownTimerInSec = 20;
 
   void startTimer() {
     _countDownTimerInSec = DEFAULT_TIME_OUT_IN_SECONDS;
