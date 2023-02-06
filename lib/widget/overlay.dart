@@ -32,6 +32,7 @@ class LoadingOverlay {
     if (isShow) {
       isShow = false;
       _timer!.cancel();
+
       _countDownTimerInSec = DEFAULT_TIME_OUT_IN_SECONDS;
       Navigator.of(_context!).pop();
     }
