@@ -15,6 +15,7 @@ Future<bool> showPopupDialog(context,
     negativeText,
     Widget? actions,
 
+
     VoidCallback? positiveButton,
     VoidCallback? negativeButton}) async {
   return await showCupertinoDialog(
@@ -63,7 +64,8 @@ Future<bool> showPopupDialog(context,
                           ),
                           SizedBox(
                             height: 40,
-                            child:actions ??  Row(
+                            child:actions ??
+                                Row(
                               children: [
                                 Expanded(
                                   child: InkWell(
@@ -207,5 +209,5 @@ Future<bool> showPopupDialog(context,
                       ],
                     )),
               );
-      });
+      }).then((value) {return false;});
 }
