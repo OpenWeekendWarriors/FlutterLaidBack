@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_laid_back/widget/blured_dialog.dart';
 import 'package:flutter_laid_back/widget/text_widget.dart';
 
-Future<bool> showPopupDialog(context,
+Future<bool?> showPopupDialog(context,
     {title,
     message,
     bool isBlur = false,
