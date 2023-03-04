@@ -13,7 +13,7 @@ dependencies:
   cached_network_image:
   persian_number_utility:
   flutter_staggered_animations:
-  flutter_svg: ^0.22.0
+  flutter_svg: 1.1.6
   flutter_spinkit:
   encrypt:
   rxdart: ^0.27.3
