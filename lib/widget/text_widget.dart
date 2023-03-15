@@ -41,6 +41,15 @@ class CustomText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = Get.width;
+    var fontSize = 18.0;
+    if (width <= 480) {
+      fontSize = 16.0;
+    } else if (width > 480 && width <= 960) {
+      fontSize = 22.0;
+    } else {
+      fontSize = 28.0;
+    }
     var textStyle = TextStyle(
         height: height ?? 1.1,
         overflow: overflow,
@@ -67,7 +76,6 @@ class CustomText extends StatelessWidget {
             width: isMatchParent! ? double.infinity : null,
             child: buildText(textStyle),
 
-
             // child: Row(
             //   mainAxisAlignment: textAlign == TextAlign.center
             //       ? MainAxisAlignment.center
@@ -84,7 +92,7 @@ class CustomText extends StatelessWidget {
     );
   }
 
- Text buildText(TextStyle textStyle) {
+  Text buildText(TextStyle textStyle) {
     return Text(
       maxLines: maxLines,
       characterCount == null
