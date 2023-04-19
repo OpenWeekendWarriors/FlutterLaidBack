@@ -15,6 +15,8 @@ class CustomButton extends StatelessWidget {
   final int? type;
   final double? borderRadios;
   final double? elevation;
+  final double? width;
+  final double? height;
   final EdgeInsets? margin;
   final EdgeInsets? insidepadding;
   final bool? hasShadow;
@@ -45,6 +47,8 @@ class CustomButton extends StatelessWidget {
       this.changeFocus,
       this.hasShadow = false,
       this.title,
+      this.width,
+      this.height,
       this.isLoading = false,
       this.isOutline = false,
       this.focusKeyCallback,
@@ -55,9 +59,9 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return isOutline
         ? Container(
-            height: 50.0,
-            width: double.infinity,
-            margin: margin ?? EdgeInsets.symmetric(vertical: dim_small),
+            height: height ?? 50.0,
+            width: width ?? double.infinity,
+            margin: margin ?? const EdgeInsets.symmetric(vertical: dim_small),
             child: FlatButton(
               onPressed: () {
                 onTap!.call();
@@ -79,9 +83,9 @@ class CustomButton extends StatelessWidget {
             ),
           )
         : Container(
-            height: 50.0,
-            width: double.infinity,
-            margin: margin ?? EdgeInsets.symmetric(vertical: dim_small),
+            height: height ?? 50.0,
+            width: width ?? double.infinity,
+            margin: margin ?? const EdgeInsets.symmetric(vertical: dim_small),
             // decoration: BoxDecoration(boxShadow:hasShadow!=null ? [BoxShadow(
             // color: bgColor!.first,
             //   blurRadius: 50.0,

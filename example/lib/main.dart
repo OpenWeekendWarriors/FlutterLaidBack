@@ -58,14 +58,18 @@ class Home extends StatelessWidget {
             children: [],
           ),
         ),
-        body: const BuildCachedImageWidget(
-          imageUrl:
-          'https://sfl2.smart-boom.com:8571/files/35645bfd-bcb5-4b95-aa0e-ff61dfb07f0c/app.png',
-          borderColor: Colors.transparent,
-          height: double.infinity,
-          width: double.maxFinite,
+        body: Column(children: [
+          CustomButton(
+            height: 30,
+            child: Row(
+            children: [
+              CustomText('dasfdsfsasdasddfdsf'),
+              SizedBox(width: 50,),
+              Icon(Icons.add)
+            ],
+          ),)
 
-        ),
+        ]),
         floatingActionButton: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Row(
