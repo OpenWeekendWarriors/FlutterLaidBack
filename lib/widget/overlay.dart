@@ -38,11 +38,11 @@ class LoadingOverlay {
     }
   }
 
-  void show({bool isUpload = false, int timeoutInSec=30}) {
+  Future show({bool isUpload = false, int timeoutInSec=30}) {
     isShow = true;
     DEFAULT_TIME_OUT_IN_SECONDS = timeoutInSec;
     startTimer();
-    showDialog(
+     return showDialog(
         context: _context!,
         barrierDismissible: false,
         builder: (context) => _FullScreenLoader(
