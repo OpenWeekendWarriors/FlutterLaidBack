@@ -59,15 +59,14 @@ class Home extends StatelessWidget {
           ),
         ),
         body: Column(children: [
-          CustomButton(
-            height: 30,
-            child: Row(
+
+          Column(
             children: [
-              CustomText('dasfdsfsasdasddfdsf'),
-              SizedBox(width: 50,),
-              Icon(Icons.add)
+              CustomText('سلام صبح یخیر یبسب سیب سیبسی بسشسی شسی شسیشس یشس یشسی شسی شسی شسی سیشسی شسی سش یشس یشسی ی بسیب یسب یسبسیب سیب سی', startWidget: Icon(Icons.add)),
+              CustomText('سلام صبح یخیر یبسب سیب سیبسی بسشسی شسی شسیشس یشس یشسی شسی شسی شسی سیشسی شسی سش یشس یشسی ی بسیب یسب یسبسیب سیب سی', startWidget: Icon(Icons.add)),
             ],
-          ),)
+          ),
+
 
         ]),
         floatingActionButton: Padding(
