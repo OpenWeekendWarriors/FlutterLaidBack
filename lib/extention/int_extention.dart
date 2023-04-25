@@ -38,7 +38,7 @@ extension SecToHrMinString on int {
 
 extension MinToHumanReadableTime on int {
   String get minToHumanReadableTime {
- 
+
     final int hour = this ~/ 60;
     final int min = (this % 60);
     return '$hour ساعت و $min دقیقه';
@@ -47,7 +47,7 @@ extension MinToHumanReadableTime on int {
 }
 
 extension MinToHumanReadableTimeEnglish on int {
-  String get minToHumanReadableTime {
+  String get minToHumanReadableTimeEnglish {
     final int hour = this ~/ 60;
     final int min = (this % 60);
     return '$hour hours and $min minutes';
