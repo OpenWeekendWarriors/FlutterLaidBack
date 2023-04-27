@@ -65,50 +65,51 @@ Future<bool?> showPopupDialog(context,
                           SizedBox(
                             height: 40,
                             child:actions ??
+                                Directionality(textDirection: TextDirection.rtl, child:
                                 Row(
-                              children: [
-                                Expanded(
-                                  child: InkWell(
-                                    onTap: () {
-                                      Navigator.of(context).pop();
-                                      return positiveButton!();
-                                    },
-                                    child: CustomText(
-                                      positiveText ?? 'تایید',
-                                      size: 16,
-                                      textAlign: TextAlign.center,
-                                      fontWeight: FontWeight.w700,
-                                      color: Colors.blue,
-                                    ),
-                                  ),
-                                ),
-                                negativeText == null
-                                    ? const SizedBox()
-                                    : Container(
-                                        width: 0.5,
-                                        color: const Color(0xFFE2E2E2),
-                                      ),
-                                negativeText == null
-                                    ? const SizedBox()
-                                    : Expanded(
-                                        child: InkWell(
-                                          onTap: () {
-                                            if (negativeButton == null) {
-                                              Navigator.of(context).pop();
-                                            }
-                                            return;
-                                          },
-                                          child: CustomText(
-                                            negativeText ?? '',
-                                            size: 16,
-                                            color: const Color(0xFF333333),
-                                            textAlign: TextAlign.center,
-                                            fontWeight: FontWeight.w700,
-                                          ),
+                                  children: [
+                                    Expanded(
+                                      child: InkWell(
+                                        onTap: () {
+                                          Navigator.of(context).pop();
+                                          return positiveButton!();
+                                        },
+                                        child: CustomText(
+                                          positiveText ?? 'تایید',
+                                          size: 16,
+                                          textAlign: TextAlign.center,
+                                          fontWeight: FontWeight.w700,
+                                          color: Colors.blue,
                                         ),
                                       ),
-                              ],
-                            ),
+                                    ),
+                                    negativeText == null
+                                        ? const SizedBox()
+                                        : Container(
+                                      width: 0.5,
+                                      color: const Color(0xFFE2E2E2),
+                                    ),
+                                    negativeText == null
+                                        ? const SizedBox()
+                                        : Expanded(
+                                      child: InkWell(
+                                        onTap: () {
+                                          if (negativeButton == null) {
+                                            Navigator.of(context).pop();
+                                          }
+                                          return;
+                                        },
+                                        child: CustomText(
+                                          negativeText ?? '',
+                                          size: 16,
+                                          color: const Color(0xFF333333),
+                                          textAlign: TextAlign.center,
+                                          fontWeight: FontWeight.w700,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                )),
                           ),
                         ],
                       )
@@ -159,32 +160,34 @@ Future<bool?> showPopupDialog(context,
                             ),
                             SizedBox(
                               height: 40,
-                              child: actions ?? Row(
-                                children: [
-                                  Expanded(
-                                    child: InkWell(
-                                      onTap: () {
-                                        Navigator.of(context).pop();
-                                        return positiveButton!();
-                                      },
-                                      child: CustomText(
-                                        positiveText ?? '',
-                                        size: 16,
-                                        textAlign: TextAlign.center,
-                                        fontWeight: FontWeight.w700,
-                                        color: Colors.blue,
-                                      ),
-                                    ),
-                                  ),
-                                  negativeText == null
-                                      ? const SizedBox()
-                                      : Container(
+                              child: actions ??
+                                Directionality(textDirection: TextDirection.rtl,
+                                    child: Row(
+                                      children: [
+                                        Expanded(
+                                          child: InkWell(
+                                            onTap: () {
+                                              Navigator.of(context).pop();
+                                              return positiveButton!();
+                                            },
+                                            child: CustomText(
+                                              positiveText ?? '',
+                                              size: 16,
+                                              textAlign: TextAlign.center,
+                                              fontWeight: FontWeight.w700,
+                                              color: Colors.blue,
+                                            ),
+                                          ),
+                                        ),
+                                        negativeText == null
+                                            ? const SizedBox()
+                                            : Container(
                                           width: 0.5,
                                           color: const Color(0xFFE2E2E2),
                                         ),
-                                  negativeText == null
-                                      ? const SizedBox()
-                                      : Expanded(
+                                        negativeText == null
+                                            ? const SizedBox()
+                                            : Expanded(
                                           child: InkWell(
                                             onTap: () {
                                               if (negativeButton == null) {
@@ -201,8 +204,9 @@ Future<bool?> showPopupDialog(context,
                                             ),
                                           ),
                                         ),
-                                ],
-                              ),
+                                      ],
+                                    ),)
+
                             ),
                           ],
                         )
