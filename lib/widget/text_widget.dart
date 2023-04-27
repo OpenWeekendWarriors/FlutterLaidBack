@@ -74,9 +74,9 @@ class CustomText extends StatelessWidget {
           color: Colors.transparent,
           child: SizedBox(
             width: isMatchParent! ? double.infinity : null,
-            // child: buildText(textStyle),
+             child: buildText(textStyle),
 
-            child: Row(
+            /*child: Row(
               mainAxisAlignment: textAlign == TextAlign.center
                   ? MainAxisAlignment.center
                   : textAlign == TextAlign.end
@@ -87,7 +87,7 @@ class CustomText extends StatelessWidget {
                 endWidget != null ? buildText(textStyle) :Expanded(child: buildText(textStyle) ) ,
                 endWidget??const SizedBox(),
               ],
-            ),
+            ),*/
           )),
     );
   }
