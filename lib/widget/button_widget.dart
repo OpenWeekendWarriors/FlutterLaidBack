@@ -95,6 +95,7 @@ class CustomButton extends StatelessWidget {
             child: RaisedButton(
               focusNode: focusNode ?? FocusNode(),
               padding: const EdgeInsets.all(0),
+              elevation: elevation ,
               focusColor: Get.theme.accentColor.withAlpha(150),
               onPressed: () {
                 if (isLoading) {

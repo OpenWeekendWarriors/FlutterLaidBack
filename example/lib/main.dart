@@ -59,13 +59,17 @@ class Home extends StatelessWidget {
           ),
         ),
         body: Column(children: [
+          Padding(
+            padding: const EdgeInsets.all(28.0),
+            child: CustomButton(title: 'test',bgColor: [Colors.white ,Colors.white],),
+          )
 
-          Column(
-            children: [
-              CustomText('سلام صبح یخیر یبسب سیب سیبسی بسشسی شسی شسیشس یشس یشسی شسی شسی شسی سیشسی شسی سش یشس یشسی ی بسیب یسب یسبسیب سیب سی', startWidget: Icon(Icons.add)),
-              CustomText('سلام صبح یخیر یبسب سیب سیبسی بسشسی شسی شسیشس یشس یشسی شسی شسی شسی سیشسی شسی سش یشس یشسی ی بسیب یسب یسبسیب سیب سی', startWidget: Icon(Icons.add)),
-            ],
-          ),
+          // Column(
+          //   children: [
+          //     CustomText('سلام صبح یخیر یبسب سیب سیبسی بسشسی شسی شسیشس یشس یشسی شسی شسی شسی سیشسی شسی سش یشس یشسی ی بسیب یسب یسبسیب سیب سی', startWidget: Icon(Icons.add)),
+          //     CustomText('سلام صبح یخیر یبسب سیب سیبسی بسشسی شسی شسیشس یشس یشسی شسی شسی شسی سیشسی شسی سش یشس یشسی ی بسیب یسب یسبسیب سیب سی', startWidget: Icon(Icons.add)),
+          //   ],
+          // ),
 
 
         ]),
