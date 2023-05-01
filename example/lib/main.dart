@@ -26,8 +26,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(useMaterial3: true, colorScheme: lightColorScheme),
       darkTheme: ThemeData(useMaterial3: true, colorScheme: darkColorScheme),
       locale: Locale(
-        'fa',
-        'IR',
+        'en',
+        'US',
       ),
       themeMode: ThemeMode.system,
       home: Home(),
@@ -54,9 +54,11 @@ class Home extends StatelessWidget {
           showLeading: false,
           bgColor: Colors.white,
           elevation: 50,
-          title: Row(
-            children: [],
+          actionIcon: const Icon(
+            Icons.arrow_forward,
+            color: Colors.black,
           ),
+          title: CustomText("werwer"),
         ),
         body: Column(children: [
           Padding(
