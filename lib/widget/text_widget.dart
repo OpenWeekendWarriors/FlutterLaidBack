@@ -48,7 +48,7 @@ class CustomText extends StatelessWidget {
     } else if (width > 480 && width <= 960) {
       fontSize = 22.0;
     } else {
-      fontSize = 28.0;
+      fontSize = 22.0;
     }
     var textStyle = TextStyle(
         height: height ?? 1.1,
