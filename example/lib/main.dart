@@ -63,7 +63,23 @@ class Home extends StatelessWidget {
         body: Column(children: [
           Padding(
             padding: const EdgeInsets.all(28.0),
-            child: CustomButton(title: 'test',bgColor: [Colors.white ,Colors.white],),
+            child:CustomTextField(
+              title: const CustomText(
+                'user_name_or_mobile',fontWeight: FontWeight.bold,
+              ),
+              textColor: Colors.black,
+              textInputAction: TextInputAction.next,
+              prefixIcon: const Icon(Icons.person_outline_outlined),
+              borderRadius: 10,
+              onFieldSubmitted: (value) {
+              },
+              inputFormatters: [
+              ],
+              validator: (value) {
+                return null;
+              },
+            ),
+
           )
 
           // Column(

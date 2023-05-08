@@ -23,7 +23,7 @@ class CustomText extends StatelessWidget {
     this.text, {
     Key? key,
     this.color,
-    this.size = 18.0,
+    this.size,
     this.fontWeight,
     this.textAlign = TextAlign.start,
     this.characterCount,
@@ -56,7 +56,7 @@ class CustomText extends StatelessWidget {
         letterSpacing: letterSpacing,
         // fontFamily: Utils.getFontFamily(),
         color: color ?? Get.theme.textTheme.bodyText1!.color,
-        fontSize: size!,
+        fontSize: size??fontSize,
         fontWeight: fontWeight ?? FontWeight.normal);
     if (style != null) {
       textStyle = style!.copyWith(
@@ -64,7 +64,7 @@ class CustomText extends StatelessWidget {
         overflow: overflow,
         letterSpacing: letterSpacing,
         color: color ?? (style?.color ?? Get.theme.textTheme.bodyText1!.color),
-        fontSize: size,
+        fontSize: size??fontSize,
         fontWeight: fontWeight ?? (style?.fontWeight ?? FontWeight.normal),
       );
     }
