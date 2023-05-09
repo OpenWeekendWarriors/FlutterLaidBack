@@ -98,29 +98,7 @@ class Home extends StatelessWidget {
               FloatingActionButton(
               backgroundColor: Colors.red,
                   onPressed: () => {
-                          overlay.show(timeoutInSec: 2),
-                        // showSnackBar(text: 'asdkfjaskdj'),
-                        // showPopupDialog(context, title: 'َُِسیسیشی', message: 'یسبسیبسیبسبسیبسیبسیب'),
-
-                        // ScaffoldMessenger.of(context).showMaterialBanner(
-                        //   MaterialBanner(
-                        //     elevation: 25,
-                        //     content: const Text('Hello, I am a Material Banner'),
-                        //     leading: const Icon(Icons.info),
-                        //     backgroundColor: Colors.green,
-                        //     actions: [
-                        //       TextButton(
-                        //         child: const Text('Dismiss'),
-                        //         onPressed: () => ScaffoldMessenger.of(context).hideCurrentMaterialBanner(),
-                        //       ),
-                        //     ],
-                        //   ),
-                        // ),
-                      },
-                  tooltip: 'Increment'),
-              FloatingActionButton(backgroundColor: Colors.blue,
-                  onPressed: () => {
-                          overlay.hide(),
+                    showPopupDialog(context , barrierDismissible: true,)
                         // showSnackBar(text: 'asdkfjaskdj'),
                         // showPopupDialog(context, title: 'َُِسیسیشی', message: 'یسبسیبسیبسبسیبسیبسیب'),
 
