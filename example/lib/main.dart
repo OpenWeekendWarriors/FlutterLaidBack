@@ -63,23 +63,21 @@ class Home extends StatelessWidget {
         body: Column(children: [
           Padding(
             padding: const EdgeInsets.all(28.0),
-            child:CustomTextField(
+            child: CustomTextField(
               title: const CustomText(
-                'user_name_or_mobile',fontWeight: FontWeight.bold,
+                'user_name_or_mobile',
+                fontWeight: FontWeight.bold,
               ),
               textColor: Colors.black,
               textInputAction: TextInputAction.next,
               prefixIcon: const Icon(Icons.person_outline_outlined),
               borderRadius: 10,
-              onFieldSubmitted: (value) {
-              },
-              inputFormatters: [
-              ],
+              onFieldSubmitted: (value) {},
+              inputFormatters: [],
               validator: (value) {
                 return null;
               },
             ),
-
           )
 
           // Column(
@@ -88,17 +86,15 @@ class Home extends StatelessWidget {
           //     CustomText('سلام صبح یخیر یبسب سیب سیبسی بسشسی شسی شسیشس یشس یشسی شسی شسی شسی سیشسی شسی سش یشس یشسی ی بسیب یسب یسبسیب سیب سی', startWidget: Icon(Icons.add)),
           //   ],
           // ),
-
-
         ]),
         floatingActionButton: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Row(
             children: [
               FloatingActionButton(
-              backgroundColor: Colors.red,
+                  backgroundColor: Colors.red,
                   onPressed: () => {
-                          overlay.show(timeoutInSec: 2),
+                        overlay.show(timeoutInSec: 2),
                         // showSnackBar(text: 'asdkfjaskdj'),
                         // showPopupDialog(context, title: 'َُِسیسیشی', message: 'یسبسیبسیبسبسیبسیبسیب'),
 
@@ -118,26 +114,40 @@ class Home extends StatelessWidget {
                         // ),
                       },
                   tooltip: 'Increment'),
-              FloatingActionButton(backgroundColor: Colors.blue,
+              FloatingActionButton(
+                  backgroundColor: Colors.blue,
                   onPressed: () => {
-                          overlay.hide(),
-                        // showSnackBar(text: 'asdkfjaskdj'),
-                        // showPopupDialog(context, title: 'َُِسیسیشی', message: 'یسبسیبسیبسبسیبسیبسیب'),
+                        showPopupDialog(context,
+                            title: 'َُِسیسیشی',
+                            message: 'یسبسیبسیبسبسیبسیبسیب',
+                            positiveText: 'tttt',
+                          isBlur: true,
+                          btnBackEnable: true,
+                          barrierDismissible: true,
+                          negativeText: 'fss',
+                          positiveButton:(){
 
-                        // ScaffoldMessenger.of(context).showMaterialBanner(
-                        //   MaterialBanner(
-                        //     elevation: 25,
-                        //     content: const Text('Hello, I am a Material Banner'),
-                        //     leading: const Icon(Icons.info),
-                        //     backgroundColor: Colors.green,
-                        //     actions: [
-                        //       TextButton(
-                        //         child: const Text('Dismiss'),
-                        //         onPressed: () => ScaffoldMessenger.of(context).hideCurrentMaterialBanner(),
-                        //       ),
-                        //     ],
-                        //   ),
-                        // ),
+                          }
+
+
+
+                        ),
+                        ScaffoldMessenger.of(context).showMaterialBanner(
+                          MaterialBanner(
+                            elevation: 25,
+                            content:
+                                const Text('Hello, I am a Material Banner'),
+                            leading: const Icon(Icons.info),
+                            backgroundColor: Colors.green,
+                            actions: [
+                              TextButton(
+                                child: const Text('Dismiss'),
+                                onPressed: () => ScaffoldMessenger.of(context)
+                                    .hideCurrentMaterialBanner(),
+                              ),
+                            ],
+                          ),
+                        ),
                       },
                   tooltip: 'Increment'),
             ],
