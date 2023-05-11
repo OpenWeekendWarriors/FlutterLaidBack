@@ -29,7 +29,7 @@ Future<bool?> showPopupDialog(context,
       context: context,
       barrierDismissible: barrierDismissible,
       builder: (BuildContext context) {
-        if(!focusNodeOk.hasFocus){
+        if(positiveText!= null && positiveText !='' && !focusNodeOk.hasFocus){
           FocusScope.of(context).requestFocus(focusNodeOk);
 
         }
