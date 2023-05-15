@@ -29,7 +29,7 @@ Future<bool?> showPopupDialog(context,
       context: context,
       barrierDismissible: barrierDismissible,
       builder: (BuildContext context) {
-        if(!focusNodeOk.hasFocus){
+        if(positiveText!= null && positiveText !='' && !focusNodeOk.hasFocus){
           FocusScope.of(context).requestFocus(focusNodeOk);
 
         }
@@ -132,18 +132,24 @@ Future<bool?> showPopupDialog(context,
                                       focusNode: focusNodeCancel,
                                       callback: (p0){
                                         if(p0.keyCode == 23){
+
                                           if (negativeButton == null) {
                                             Navigator.of(context).pop();
+                                          }else{
+                                            negativeButton();
                                           }
-                                          return;
+
                                         }
                                       },
                                       child: InkWell(
                                         onTap: () {
                                           if (negativeButton == null) {
                                             Navigator.of(context).pop();
+                                          }else{
+                                            negativeButton();
+
                                           }
-                                          return;
+
                                         },
                                         child: CustomText(
                                           negativeText ?? '',
@@ -267,15 +273,19 @@ Future<bool?> showPopupDialog(context,
                                             callback: (p0) {
                                               if (negativeButton == null) {
                                                 Navigator.of(context).pop();
+                                              }else{
+                                                negativeButton();
                                               }
-                                              return;
+
                                             },
                                             child: InkWell(
                                               onTap: () {
                                                 if (negativeButton == null) {
                                                   Navigator.of(context).pop();
+                                                }else{
+                                                  negativeButton();
                                                 }
-                                                return;
+
                                               },
                                               child: CustomText(
                                                 negativeText ?? '',
