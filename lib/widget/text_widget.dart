@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_laid_back/di/dependency.dart';
 import 'package:get/get.dart';
 
 class CustomText extends StatelessWidget {
@@ -58,13 +59,17 @@ class CustomText extends StatelessWidget {
         color: color ?? Get.theme.textTheme.bodyText1!.color,
         fontSize: size??fontSize,
         fontWeight: fontWeight ?? FontWeight.normal);
+      if(laidBackConfig.textStyleBody!=null){
+        textStyle = laidBackConfig.textStyleBody!;
+      }
+
     if (style != null) {
       textStyle = style!.copyWith(
         height: height ?? (style?.height ?? 1.1),
         overflow: overflow,
         letterSpacing: letterSpacing,
         color: color ?? (style?.color ?? Get.theme.textTheme.bodyText1!.color),
-        fontSize: size??fontSize,
+        fontSize: size ?? fontSize,
         fontWeight: fontWeight ?? (style?.fontWeight ?? FontWeight.normal),
       );
     }
@@ -74,7 +79,7 @@ class CustomText extends StatelessWidget {
           color: Colors.transparent,
           child: SizedBox(
             width: isMatchParent! ? double.infinity : null,
-             child: buildText(textStyle),
+            child: buildText(textStyle),
 
             /*child: Row(
               mainAxisAlignment: textAlign == TextAlign.center
