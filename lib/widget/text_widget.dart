@@ -62,9 +62,15 @@ class CustomText extends StatelessWidget {
 
     if (laidBackConfig.textStyleBody != null) {
       if (laidBackConfig.clientType == 'app') {
-        textStyle = TextStyle(color: Get.theme.textTheme.bodyText1!.color, fontSize: 16, fontWeight: FontWeight.normal);
+        textStyle = TextStyle(
+            color: laidBackConfig.textStyleBody?.color ?? Get.theme.textTheme.bodyText1!.color,
+            fontSize: 16,
+            fontWeight: FontWeight.normal);
       } else {
-        textStyle = TextStyle(color: Get.theme.textTheme.bodyText1!.color, fontSize: 22, fontWeight: FontWeight.normal);
+        textStyle = TextStyle(
+            color: laidBackConfig.textStyleBody?.color ?? Get.theme.textTheme.bodyText1!.color,
+            fontSize: 22,
+            fontWeight: FontWeight.normal);
       }
     }
     if (style != null) {
