@@ -64,13 +64,13 @@ class CustomText extends StatelessWidget {
       if (laidBackConfig.clientType == 'app') {
         textStyle = TextStyle(
             color: laidBackConfig.textStyleBody?.color ?? Get.theme.textTheme.bodyText1!.color,
-            fontSize: 16,
-            fontWeight: FontWeight.normal);
+            fontSize: laidBackConfig.textStyleBody?.fontSize ?? 16,
+            fontWeight:laidBackConfig.textStyleBody?.fontWeight ??  FontWeight.normal);
       } else {
         textStyle = TextStyle(
             color: laidBackConfig.textStyleBody?.color ?? Get.theme.textTheme.bodyText1!.color,
-            fontSize: 22,
-            fontWeight: FontWeight.normal);
+            fontSize: laidBackConfig.textStyleBody?.fontSize ?? 22,
+            fontWeight: laidBackConfig.textStyleBody?.fontWeight ?? FontWeight.normal);
       }
     }
     if (style != null) {
