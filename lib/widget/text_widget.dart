@@ -57,12 +57,16 @@ class CustomText extends StatelessWidget {
         letterSpacing: letterSpacing,
         // fontFamily: Utils.getFontFamily(),
         color: color ?? Get.theme.textTheme.bodyText1!.color,
-        fontSize: size??fontSize,
+        fontSize: size ?? fontSize,
         fontWeight: fontWeight ?? FontWeight.normal);
-      if(laidBackConfig.textStyleBody!=null){
-        textStyle = laidBackConfig.textStyleBody!;
-      }
 
+    if (laidBackConfig.textStyleBody != null) {
+      if (laidBackConfig.clientType == 'app') {
+        textStyle = TextStyle(color: Get.theme.textTheme.bodyText1!.color, fontSize: 16, fontWeight: FontWeight.normal);
+      } else {
+        textStyle = TextStyle(color: Get.theme.textTheme.bodyText1!.color, fontSize: 22, fontWeight: FontWeight.normal);
+      }
+    }
     if (style != null) {
       textStyle = style!.copyWith(
         height: height ?? (style?.height ?? 1.1),
