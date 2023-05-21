@@ -10,7 +10,7 @@ Widget customLoadingWidget({double? radios = 28, Color? color, bool isShowProgre
   return Center(
     child: isShowProgress
         ? SpinKitSpinningLines(
-            color:Get.theme.accentColor,
+            color:Get.theme.colorScheme.secondary,
             size: radios!,
           )
         : const CustomText('No data'),
