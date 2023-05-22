@@ -59,20 +59,21 @@ class CustomText extends StatelessWidget {
         color: color ?? Get.theme.textTheme.bodyText1!.color,
         fontSize: size ?? fontSize,
         fontWeight: fontWeight ?? FontWeight.normal);
-
-    if (laidBackConfig.textStyleBody != null) {
-      if (laidBackConfig.clientType == 'app') {
-        textStyle = TextStyle(
-            color: laidBackConfig.textStyleBody?.color ?? Get.theme.textTheme.bodyText1!.color,
-            fontSize: laidBackConfig.textStyleBody?.fontSize ?? 16,
-            fontWeight:laidBackConfig.textStyleBody?.fontWeight ??  FontWeight.normal);
-      } else {
-        textStyle = TextStyle(
-            color: laidBackConfig.textStyleBody?.color ?? Get.theme.textTheme.bodyText1!.color,
-            fontSize: laidBackConfig.textStyleBody?.fontSize ?? 22,
-            fontWeight: laidBackConfig.textStyleBody?.fontWeight ?? FontWeight.normal);
+      if(laidBackConfig !=null) {
+        if (laidBackConfig.textStyleBody != null) {
+          if (laidBackConfig.clientType == 'app') {
+            textStyle = TextStyle(
+                color: laidBackConfig.textStyleBody?.color ?? Get.theme.textTheme.bodyText1!.color,
+                fontSize: laidBackConfig.textStyleBody?.fontSize ?? 16,
+                fontWeight: laidBackConfig.textStyleBody?.fontWeight ?? FontWeight.normal);
+          } else {
+            textStyle = TextStyle(
+                color: laidBackConfig.textStyleBody?.color ?? Get.theme.textTheme.bodyText1!.color,
+                fontSize: laidBackConfig.textStyleBody?.fontSize ?? 22,
+                fontWeight: laidBackConfig.textStyleBody?.fontWeight ?? FontWeight.normal);
+          }
+        }
       }
-    }
     if (style != null) {
       textStyle = style!.copyWith(
         height: height ?? (style?.height ?? 1.1),

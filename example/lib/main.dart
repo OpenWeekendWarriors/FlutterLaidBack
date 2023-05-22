@@ -1,6 +1,8 @@
 import 'package:example/color_schemes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_laid_back/conf/const.dart';
+import 'package:flutter_laid_back/conf/laid_back_config.dart';
+import 'package:flutter_laid_back/di/dependency.dart';
 import 'package:flutter_laid_back/widget/button_widget.dart';
 import 'package:flutter_laid_back/widget/cached_network_image_widget.dart';
 import 'package:flutter_laid_back/widget/custom_app_bar.dart';
@@ -12,6 +14,7 @@ import 'package:flutter_laid_back/widget/text_widget.dart';
 import 'package:get/get.dart';
 
 void main() {
+  injectLaidBackDependency(LaidBackConfig(textStyleBody: TextStyle(fontSize: 16)));
   runApp(const MyApp());
 }
 
@@ -48,6 +51,15 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var overlay = LoadingOverlay.of(Get.context);
+    double devicePixelRatio = Get.pixelRatio;
+    TextStyle style38 = new TextStyle(
+      inherit: true,
+      fontSize: 38.0,
+    );
+    TextStyle style20 = new TextStyle(
+      inherit: true,
+      fontSize: 20.0,
+    );
 
     return Scaffold(
         appBar: CustomAppbar(
@@ -78,7 +90,32 @@ class Home extends StatelessWidget {
                 return null;
               },
             ),
-          )
+          ),
+
+          // new Text(
+          //   'Button tapped $_counter time${ _counter == 1 ? '' : 's' }.',
+          //   style: style38,
+          // ),
+          new Text(
+            'size (pixels): w=${Get.width * devicePixelRatio}, h=${Get.size.height * devicePixelRatio}',
+            style: style20,
+          ),
+          new Text(
+            'devicePixelRatio: $devicePixelRatio',
+            style: style20,
+          ),
+          new Text(
+            'size: w=${Get.width}, h=${Get.height}',
+            style: style20,
+          ),
+          new Text(
+            'textScaleFactor: w=${Get.textScaleFactor}',
+            style: style20,
+          ),
+
+          // Container(width: ,height: ,color: Colors.blue,)
+
+
 
           // Column(
           //   children: [
@@ -87,71 +124,7 @@ class Home extends StatelessWidget {
           //   ],
           // ),
         ]),
-        floatingActionButton: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Row(
-            children: [
-              FloatingActionButton(
-                  backgroundColor: Colors.red,
-                  onPressed: () => {
-                        overlay.show(timeoutInSec: 2),
-                        // showSnackBar(text: 'asdkfjaskdj'),
-                        // showPopupDialog(context, title: 'َُِسیسیشی', message: 'یسبسیبسیبسبسیبسیبسیب'),
 
-                        // ScaffoldMessenger.of(context).showMaterialBanner(
-                        //   MaterialBanner(
-                        //     elevation: 25,
-                        //     content: const Text('Hello, I am a Material Banner'),
-                        //     leading: const Icon(Icons.info),
-                        //     backgroundColor: Colors.green,
-                        //     actions: [
-                        //       TextButton(
-                        //         child: const Text('Dismiss'),
-                        //         onPressed: () => ScaffoldMessenger.of(context).hideCurrentMaterialBanner(),
-                        //       ),
-                        //     ],
-                        //   ),
-                        // ),
-                      },
-                  tooltip: 'Increment'),
-              FloatingActionButton(
-                  backgroundColor: Colors.blue,
-                  onPressed: () => {
-                        showPopupDialog(context,
-                            title: 'َُِسیسیشی',
-                            message: 'یسبسیبسیبسبسیبسیبسیب',
-                            positiveText: 'tttt',
-                          isBlur: true,
-                          btnBackEnable: true,
-                          barrierDismissible: true,
-                          negativeText: 'fss',
-                          positiveButton:(){
-
-                          }
-
-
-
-                        ),
-                        ScaffoldMessenger.of(context).showMaterialBanner(
-                          MaterialBanner(
-                            elevation: 25,
-                            content:
-                                const Text('Hello, I am a Material Banner'),
-                            leading: const Icon(Icons.info),
-                            backgroundColor: Colors.green,
-                            actions: [
-                              TextButton(
-                                child: const Text('Dismiss'),
-                                onPressed: () => ScaffoldMessenger.of(context)
-                                    .hideCurrentMaterialBanner(),
-                              ),
-                            ],
-                          ),
-                        ),
-                      },
-                  tooltip: 'Increment'),
-            ],
-          ),
-        ));
+    );
   }
 }
