@@ -73,7 +73,7 @@ class CustomButton extends StatelessWidget {
             height: height ?? 50.0,
             width: width ?? double.infinity,
             margin: margin ?? const EdgeInsets.symmetric(vertical: dim_small),
-            child: TextButton(
+            child: OutlinedButton(
               style: flatButtonStyle,
               onPressed: () {
                 onTap!.call();
