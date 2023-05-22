@@ -1,14 +1,9 @@
 import 'package:example/color_schemes.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_laid_back/conf/const.dart';
 import 'package:flutter_laid_back/conf/laid_back_config.dart';
 import 'package:flutter_laid_back/di/dependency.dart';
-import 'package:flutter_laid_back/widget/button_widget.dart';
-import 'package:flutter_laid_back/widget/cached_network_image_widget.dart';
 import 'package:flutter_laid_back/widget/custom_app_bar.dart';
-import 'package:flutter_laid_back/widget/custom_popup_dialog.dart';
 import 'package:flutter_laid_back/widget/overlay.dart';
-import 'package:flutter_laid_back/widget/snackbar.dart';
 import 'package:flutter_laid_back/widget/text_field_widget.dart';
 import 'package:flutter_laid_back/widget/text_widget.dart';
 import 'package:get/get.dart';

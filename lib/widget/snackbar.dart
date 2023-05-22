@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_laid_back/conf/const.dart';
 import 'package:flutter_laid_back/widget/text_widget.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/snackbar/snackbar.dart';
 import 'package:meta/meta.dart';
@@ -130,16 +131,16 @@ void showSnackBar(
       //     // backgroundColor: Get.theme.appBarTheme.color.withAlpha(150));
       //     backgroundColor: Get.theme.accentColor);
       break;
-    // case ShowType.TOAST:
-    //   Fluttertoast.showToast(
-    //       msg: text??'',
-    //       toastLength: Toast.LENGTH_SHORT,
-    //       gravity: ToastGravity.BOTTOM,
-    //       timeInSecForIosWeb: 1,
-    //       backgroundColor: Colors.red,
-    //       textColor: Colors.white,
-    //       fontSize: 16.0
-    //   );
-    //   break;
+    case ShowType.TOAST:
+      Fluttertoast.showToast(
+          msg: text??'',
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.BOTTOM,
+          timeInSecForIosWeb: 1,
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          fontSize: 16.0
+      );
+      break;
   }
 }

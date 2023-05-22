@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter/src/widgets/preferred_size.dart';
 
-class CustomAppbar extends StatelessWidget with PreferredSizeWidget {
+class CustomAppbar extends PreferredSize {
   final Widget? leadingIcon;
   final VoidCallback? leadingClick;
   final Widget? actionIcon;
@@ -14,18 +15,21 @@ class CustomAppbar extends StatelessWidget with PreferredSizeWidget {
   final double? elevation;
   final Color? shadowColor;
 
-  CustomAppbar(
-      {this.leadingIcon,
-      this.leadingClick,
-      this.actionIcon,
-      this.actionIcon1,
-      this.actionClick,
-      this.actionClick1,
-      this.title,
-      this.bgColor,
-      this.shadowColor,
-      this.elevation,
-      this.showLeading = true});
+  CustomAppbar({
+    this.leadingIcon,
+    this.leadingClick,
+    this.actionIcon,
+    this.actionIcon1,
+    this.actionClick,
+    this.actionClick1,
+    this.title,
+    this.bgColor,
+    this.shadowColor,
+    this.elevation,
+    this.showLeading = true,
+    super.child = const SizedBox(),
+    super.preferredSize = const Size.fromHeight(kToolbarHeight),
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -33,11 +37,11 @@ class CustomAppbar extends StatelessWidget with PreferredSizeWidget {
       textDirection: TextDirection.rtl,
       child: AppBar(
           bottomOpacity: 0.0,
-          backgroundColor:bgColor?? Get.theme.appBarTheme.backgroundColor,
+          backgroundColor: bgColor ?? Get.theme.appBarTheme.backgroundColor,
           centerTitle: true,
-          elevation: elevation?? 0.0,
-          surfaceTintColor:bgColor?? Get.theme.appBarTheme.backgroundColor,
-          shadowColor: shadowColor??Get.theme.appBarTheme.shadowColor,
+          elevation: elevation ?? 0.0,
+          surfaceTintColor: bgColor ?? Get.theme.appBarTheme.backgroundColor,
+          shadowColor: shadowColor ?? Get.theme.appBarTheme.shadowColor,
           title: title ?? const SizedBox(),
           automaticallyImplyLeading: showLeading,
           leading: !showLeading
@@ -51,8 +55,14 @@ class CustomAppbar extends StatelessWidget with PreferredSizeWidget {
                     )
                   : IconButton(onPressed: leadingClick, icon: leadingIcon!),
           actions: [
-            actionIcon == null ? SizedBox() : IconButton(icon: actionIcon!, onPressed: () => actionClick!()),
-            actionIcon1 == null ? SizedBox() : IconButton(icon: actionIcon1!, onPressed: () => actionClick1!())
+            actionIcon == null
+                ? SizedBox()
+                : IconButton(
+                    icon: actionIcon!, onPressed: () => actionClick!()),
+            actionIcon1 == null
+                ? SizedBox()
+                : IconButton(
+                    icon: actionIcon1!, onPressed: () => actionClick1!())
           ]),
     );
   }
