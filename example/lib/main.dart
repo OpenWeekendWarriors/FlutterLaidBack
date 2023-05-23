@@ -2,6 +2,7 @@ import 'package:example/color_schemes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_laid_back/conf/laid_back_config.dart';
 import 'package:flutter_laid_back/di/dependency.dart';
+import 'package:flutter_laid_back/extention/date_time_extention.dart';
 import 'package:flutter_laid_back/widget/button_widget.dart';
 import 'package:flutter_laid_back/widget/custom_app_bar.dart';
 import 'package:flutter_laid_back/widget/overlay.dart';
@@ -47,11 +48,11 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     var overlay = LoadingOverlay.of(Get.context);
     double devicePixelRatio = Get.pixelRatio;
-    TextStyle style38 = new TextStyle(
+    TextStyle style38 = TextStyle(
       inherit: true,
       fontSize: 38.0,
     );
-    TextStyle style20 = new TextStyle(
+    TextStyle style20 = TextStyle(
       inherit: true,
       fontSize: 20.0,
     );
@@ -91,21 +92,28 @@ class Home extends StatelessWidget {
           //   'Button tapped $_counter time${ _counter == 1 ? '' : 's' }.',
           //   style: style38,
           // ),
-          CustomButton(title: 'outline',isOutline: true,outlineColor: Colors.red,),
+          CustomButton(title: 'convert',onTap: (){
+            DateTime dateTime = DateTime.now();
+            print(dateTime.timeZoneName);
+            print(dateTime.timeZoneOffset.toString());
+            print(dateTime.timeZoneOffset);
+            // print('>>>>>>>>>>>>>>>' + DateTime(2023,5,23,13,03,00).toLocal().toString());
 
-          new Text(
+          } ),
+
+          Text(
             'size (pixels): w=${Get.width * devicePixelRatio}, h=${Get.size.height * devicePixelRatio}',
             style: style20,
           ),
-          new Text(
+          Text(
             'devicePixelRatio: $devicePixelRatio',
             style: style20,
           ),
-          new Text(
+          Text(
             'size: w=${Get.width}, h=${Get.height}',
             style: style20,
           ),
-          new Text(
+          Text(
             'textScaleFactor: w=${Get.textScaleFactor}',
             style: style20,
           ),

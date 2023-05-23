@@ -60,31 +60,35 @@ class CustomButton extends StatelessWidget {
     final ButtonStyle outlineButtonStyle = OutlinedButton.styleFrom(
       shape: RoundedRectangleBorder(
           side: BorderSide(
-            color: outlineColor??Get.theme.primaryColor,
+            color: outlineColor ?? Get.theme.primaryColor,
             width: borderWidth!,
             style: BorderStyle.solid,
           ),
-          borderRadius:
-              BorderRadius.circular(borderRadios ?? brd_radius_medium)),
+          borderRadius: BorderRadius.circular(borderRadios ?? brd_radius_medium)),
     );
     return isOutline
-        ? OutlinedButton(
-          style: outlineButtonStyle,
-          onPressed: () {
-            onTap!.call();
-          },
-          // textColor: MyColor.white,
-          child: title != null
-              ? CustomText(
-                  textAlign: TextAlign.center,
+        ? Container(
+            height: height ?? 50.0,
+            width: width ?? double.infinity,
+            margin: margin ?? const EdgeInsets.symmetric(vertical: dim_small),
+            child: OutlinedButton(
+              style: outlineButtonStyle,
+              onPressed: () {
+                onTap!.call();
+              },
+              // textColor: MyColor.white,
+              child: title != null
+                  ? CustomText(
+                      textAlign: TextAlign.center,
 
-                  title,
-                  // fontWeight: FontWeight.bold,
-                  size: 50,
-                  color: textColor,
-                )
-              : child!,
-        )
+                      title,
+                      // fontWeight: FontWeight.bold,
+                      size: 50,
+                      color: textColor,
+                    )
+                  : child!,
+            ),
+          )
         : Container(
             height: height ?? 50.0,
             width: width ?? double.infinity,
@@ -101,9 +105,7 @@ class CustomButton extends StatelessWidget {
                 padding: const EdgeInsets.all(0),
                 elevation: elevation,
                 foregroundColor: Get.theme.colorScheme.secondary.withAlpha(150),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(
-                        borderRadios ?? brd_radius_medium)),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(borderRadios ?? brd_radius_medium)),
               ),
               onPressed: () {
                 if (isLoading) {
@@ -114,9 +116,7 @@ class CustomButton extends StatelessWidget {
               },
               child: Ink(
                 decoration: BoxDecoration(
-                    border: Border.all(
-                        color: borderColor ?? Colors.transparent,
-                        width: borderWidth!),
+                    border: Border.all(color: borderColor ?? Colors.transparent, width: borderWidth!),
                     gradient: LinearGradient(
                       colors: bgColor ??
                           [
@@ -126,8 +126,7 @@ class CustomButton extends StatelessWidget {
                       begin: Alignment.centerLeft,
                       end: Alignment.centerRight,
                     ),
-                    borderRadius: BorderRadius.circular(
-                        borderRadios ?? brd_radius_medium)),
+                    borderRadius: BorderRadius.circular(borderRadios ?? brd_radius_medium)),
                 child: isLoading
                     ? const SpinKitChasingDots(
                         color: Colors.white,
@@ -140,8 +139,7 @@ class CustomButton extends StatelessWidget {
                                 title,
                                 fontWeight: FontWeight.bold,
                                 textAlign: TextAlign.center,
-                                color: textColor ??
-                                    Get.theme.textTheme.bodyText1!.color,
+                                color: textColor ?? Get.theme.textTheme.bodyText1!.color,
                               )
                             : child,
                       ),
