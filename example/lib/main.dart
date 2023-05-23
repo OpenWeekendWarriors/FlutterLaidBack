@@ -2,6 +2,7 @@ import 'package:example/color_schemes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_laid_back/conf/laid_back_config.dart';
 import 'package:flutter_laid_back/di/dependency.dart';
+import 'package:flutter_laid_back/widget/button_widget.dart';
 import 'package:flutter_laid_back/widget/custom_app_bar.dart';
 import 'package:flutter_laid_back/widget/overlay.dart';
 import 'package:flutter_laid_back/widget/text_field_widget.dart';
@@ -21,13 +22,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       // theme: Themes().lightTheme,
-      theme: ThemeData(useMaterial3: true, colorScheme: lightColorScheme),
-      darkTheme: ThemeData(useMaterial3: true, colorScheme: darkColorScheme),
+      // theme: ThemeData(useMaterial3: true, colorScheme: lightColorScheme),
+      // darkTheme: ThemeData(useMaterial3: true, colorScheme: darkColorScheme),
       locale: Locale(
         'en',
         'US',
       ),
-      themeMode: ThemeMode.system,
       home: Home(),
     );
   }
@@ -91,6 +91,8 @@ class Home extends StatelessWidget {
           //   'Button tapped $_counter time${ _counter == 1 ? '' : 's' }.',
           //   style: style38,
           // ),
+          CustomButton(title: 'outline',isOutline: true,outlineColor: Colors.red,),
+
           new Text(
             'size (pixels): w=${Get.width * devicePixelRatio}, h=${Get.size.height * devicePixelRatio}',
             style: style20,

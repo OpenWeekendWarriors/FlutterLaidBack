@@ -57,40 +57,34 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ButtonStyle flatButtonStyle = TextButton.styleFrom(
+    final ButtonStyle outlineButtonStyle = OutlinedButton.styleFrom(
       shape: RoundedRectangleBorder(
           side: BorderSide(
-            color: outlineColor!,
+            color: outlineColor??Get.theme.primaryColor,
             width: borderWidth!,
             style: BorderStyle.solid,
           ),
           borderRadius:
               BorderRadius.circular(borderRadios ?? brd_radius_medium)),
-      backgroundColor: Colors.blue,
     );
     return isOutline
-        ? Container(
-            height: height ?? 50.0,
-            width: width ?? double.infinity,
-            margin: margin ?? const EdgeInsets.symmetric(vertical: dim_small),
-            child: OutlinedButton(
-              style: flatButtonStyle,
-              onPressed: () {
-                onTap!.call();
-              },
-              // textColor: MyColor.white,
-              child: title != null
-                  ? CustomText(
-                      textAlign: TextAlign.center,
+        ? OutlinedButton(
+          style: outlineButtonStyle,
+          onPressed: () {
+            onTap!.call();
+          },
+          // textColor: MyColor.white,
+          child: title != null
+              ? CustomText(
+                  textAlign: TextAlign.center,
 
-                      title,
-                      // fontWeight: FontWeight.bold,
-                      size: text_size_small,
-                      color: textColor,
-                    )
-                  : child!,
-            ),
-          )
+                  title,
+                  // fontWeight: FontWeight.bold,
+                  size: 50,
+                  color: textColor,
+                )
+              : child!,
+        )
         : Container(
             height: height ?? 50.0,
             width: width ?? double.infinity,
