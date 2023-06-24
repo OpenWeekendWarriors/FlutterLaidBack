@@ -14,6 +14,7 @@ class LoadingOverlay {
   int DEFAULT_TIME_OUT_IN_SECONDS = 20;
   int _countDownTimerInSec = 20;
 
+
   void startTimer() {
     _countDownTimerInSec = DEFAULT_TIME_OUT_IN_SECONDS;
     const oneSec = Duration(seconds: 1);

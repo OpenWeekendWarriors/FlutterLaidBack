@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter/src/widgets/preferred_size.dart';
 
 class CustomAppbar extends PreferredSize {
   final Widget? leadingIcon;
@@ -40,6 +39,7 @@ class CustomAppbar extends PreferredSize {
           backgroundColor: bgColor ?? Get.theme.appBarTheme.backgroundColor,
           centerTitle: true,
           elevation: elevation ?? 0.0,
+          iconTheme: IconThemeData(color: Get.theme.appBarTheme.iconTheme?.color ?? Colors.black),
           surfaceTintColor: bgColor ?? Get.theme.appBarTheme.backgroundColor,
           shadowColor: shadowColor ?? Get.theme.appBarTheme.shadowColor,
           title: title ?? const SizedBox(),
@@ -55,14 +55,8 @@ class CustomAppbar extends PreferredSize {
                     )
                   : IconButton(onPressed: leadingClick, icon: leadingIcon!),
           actions: [
-            actionIcon == null
-                ? SizedBox()
-                : IconButton(
-                    icon: actionIcon!, onPressed: () => actionClick!()),
-            actionIcon1 == null
-                ? SizedBox()
-                : IconButton(
-                    icon: actionIcon1!, onPressed: () => actionClick1!())
+            actionIcon == null ? const SizedBox() : IconButton(icon: actionIcon!, onPressed: () => actionClick!()),
+            actionIcon1 == null ? const SizedBox() : IconButton(icon: actionIcon1!, onPressed: () => actionClick1!())
           ]),
     );
   }

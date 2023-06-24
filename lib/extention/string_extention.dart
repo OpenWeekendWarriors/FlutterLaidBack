@@ -24,6 +24,7 @@ extension ParseDate on String {
 extension ParseDateTimeToShamsiDate on String {
   String get dateTimeToShamsiDate {
     if (this == null) return '';
+
     return DateTime.tryParse(this)!.toPersianDate(twoDigits: false);
     // moneyFormatter = 'RM${this}'
   }

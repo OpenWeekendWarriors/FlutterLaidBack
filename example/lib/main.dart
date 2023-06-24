@@ -1,5 +1,6 @@
 import 'package:example/color_schemes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_laid_back/conf/laid_back_config.dart';
 import 'package:flutter_laid_back/di/dependency.dart';
 import 'package:flutter_laid_back/extention/date_time_extention.dart';
@@ -11,7 +12,7 @@ import 'package:flutter_laid_back/widget/text_widget.dart';
 import 'package:get/get.dart';
 
 void main() {
-  injectLaidBackDependency(LaidBackConfig(textStyleBody: TextStyle(fontSize: 16)));
+  injectLaidBackDependency(LaidBackConfig(textStyleBody: const TextStyle(fontSize: 16)));
   runApp(const MyApp());
 }
 
@@ -22,10 +23,26 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      theme: ThemeData(
+        iconTheme: const IconThemeData(color: Colors.black),
+          appBarTheme: const AppBarTheme(
+            iconTheme: IconThemeData(color: Colors.black),
+            systemOverlayStyle: SystemUiOverlayStyle(
+              statusBarBrightness: Brightness.light,
+              statusBarColor: Colors.transparent, // transparent status bar
+              systemNavigationBarColor: Colors.transparent,
+              systemNavigationBarDividerColor: Colors.transparent,
+            ),
+          ),
+          scaffoldBackgroundColor: Colors.red,
+          // useMaterial3: true,
+          colorScheme: lightColorScheme,
+          primaryColor: Colors.purple,),
+
       // theme: Themes().lightTheme,
       // theme: ThemeData(useMaterial3: true, colorScheme: lightColorScheme),
       // darkTheme: ThemeData(useMaterial3: true, colorScheme: darkColorScheme),
-      locale: Locale(
+      locale: const Locale(
         'en',
         'US',
       ),
@@ -48,25 +65,33 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     var overlay = LoadingOverlay.of(Get.context);
     double devicePixelRatio = Get.pixelRatio;
-    TextStyle style38 = TextStyle(
+    TextStyle style38 = const TextStyle(
       inherit: true,
       fontSize: 38.0,
     );
-    TextStyle style20 = TextStyle(
+    TextStyle style20 = const TextStyle(
       inherit: true,
       fontSize: 20.0,
     );
 
     return Scaffold(
         appBar: CustomAppbar(
+          shadowColor: Colors.grey,
+          elevation: 5,
+          bgColor: Colors.grey,
           showLeading: false,
-          bgColor: Colors.white,
-          elevation: 50,
-          actionIcon: const Icon(
-            Icons.arrow_forward,
-            color: Colors.black,
-          ),
-          title: CustomText("werwer"),
+          actionIcon:
+              const Icon(Icons.delete_outline_rounded),
+          actionIcon1:
+               IconButton(
+              onPressed: () {
+              },
+              icon: const Icon(Icons.arrow_forward)),
+          actionClick: () {
+
+          },
+          actionClick1: () {
+          },
         ),
         body: Column(children: [
           Padding(
@@ -92,6 +117,13 @@ class Home extends StatelessWidget {
           //   'Button tapped $_counter time${ _counter == 1 ? '' : 's' }.',
           //   style: style38,
           // ),
+
+
+          Icon(Icons.add_circle,size: 50,),
+          IconButton(onPressed: (){
+
+          }, icon: Icon(Icons.add_circle,size: 50,),),
+
           CustomButton(title: 'convert',onTap: (){
             DateTime dateTime = DateTime.now();
             print(dateTime.timeZoneName);
