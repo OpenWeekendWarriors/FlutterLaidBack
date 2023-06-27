@@ -7,6 +7,7 @@ import 'package:flutter_laid_back/extention/date_time_extention.dart';
 import 'package:flutter_laid_back/widget/button_widget.dart';
 import 'package:flutter_laid_back/widget/custom_app_bar.dart';
 import 'package:flutter_laid_back/widget/overlay.dart';
+import 'package:flutter_laid_back/widget/svg_loader.dart';
 import 'package:flutter_laid_back/widget/text_field_widget.dart';
 import 'package:flutter_laid_back/widget/text_widget.dart';
 import 'package:get/get.dart';
@@ -94,6 +95,10 @@ class Home extends StatelessWidget {
           },
         ),
         body: Column(children: [
+          
+          svgLoader('http://192.168.1.165:8571/files/7b45130e-e2b4-4bc8-afa7-f2db9bf26d64/app.svg', color: Colors.green),
+          
+          
           Padding(
             padding: const EdgeInsets.all(28.0),
             child: CustomTextField(
