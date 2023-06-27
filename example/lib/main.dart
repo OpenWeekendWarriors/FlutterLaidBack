@@ -95,10 +95,7 @@ class Home extends StatelessWidget {
           },
         ),
         body: Column(children: [
-          
           svgLoader('http://192.168.1.165:8571/files/7b45130e-e2b4-4bc8-afa7-f2db9bf26d64/app.svg', color: Colors.green),
-          
-          
           Padding(
             padding: const EdgeInsets.all(28.0),
             child: CustomTextField(
